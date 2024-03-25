@@ -1,0 +1,17 @@
+{
+  "name": "CustomIcons",
+  "textClasses": {
+    "label": {
+      "fontFace": "Pretendard Medium"
+    },
+    "callout": {
+      "fontFace": "Pretendard Medium"
+    },
+    "title": {
+      "fontFace": "Pretendard Medium"
+    },
+    "header": {
+      "fontFace": "Pretendard Medium"
+    }
+  }
+}
