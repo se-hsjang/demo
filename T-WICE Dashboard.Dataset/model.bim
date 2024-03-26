@@ -4,7 +4,7 @@
     "annotations": [
       {
         "name": "PBI_QueryOrder",
-        "value": "[\"measure(Service)\",\"dms_co_brand\",\"dms_co_code\",\"dms_co_vehic\",\"dms_sales_contract\",\"dms_svc_kpi_resource\",\"dms_svc_resv\",\"dms_svc_ro\",\"dms_co_variant\",\"dms_svc_ro_sales\",\"dms_svc_act8_cust_v\",\"v_dim_calendar\",\"v_dim_dealer\",\"v_fact_dealer_sales_target\",\"v_fact_svc_type_detail\",\"v_dim_dealer_l\",\"v_dim_dealer_t\",\"v_dim_group\",\"dms_svc_act8_cust_retail_year_v\",\"v_fact_capa_kpi\",\"dms_co_variant_v\",\"dms_sales_customer_traffic\",\"dms_sales_kpi_resource_day\",\"dms_sales_testdrive\",\"v_fact_contract_conversion_daily_sales\",\"v_fact_local_stock_sales\",\"dms_co_report_variant_v\",\"dms_sales_kpi_history\",\"dms_co_kpi_resource\",\"dms_sales_kpi_resource\",\"v_dim_dealer_sales\",\"v_dim_group_sales\",\"v_fact_stock_info\",\"v_sales_contract_forecast\"]"
+        "value": "[\"measure(Service)\",\"dms_co_brand\",\"dms_co_code\",\"dms_co_vehic\",\"dms_sales_contract\",\"dms_svc_kpi_resource\",\"dms_svc_resv\",\"dms_svc_ro\",\"dms_co_variant\",\"dms_svc_ro_sales\",\"dms_svc_act8_cust_v\",\"v_dim_calendar\",\"v_dim_dealer\",\"v_fact_dealer_sales_target\",\"v_fact_svc_type_detail\",\"v_dim_dealer_l\",\"v_dim_dealer_t\",\"v_dim_group\",\"dms_svc_act8_cust_retail_year_v\",\"v_fact_capa_kpi\",\"dms_co_variant_v\",\"dms_sales_customer_traffic\",\"dms_sales_kpi_resource_day\",\"dms_sales_testdrive\",\"v_fact_contract_conversion_daily_sales\",\"v_fact_local_stock_sales\",\"dms_co_report_variant_v\",\"dms_sales_kpi_history\",\"dms_co_kpi_resource\",\"dms_sales_kpi_resource\",\"v_dim_dealer_sales\",\"v_dim_group_sales\",\"v_fact_stock_info\",\"v_sales_contract_forecast\",\"dms_life_cycle_kpi_resource_v\",\"dms_co_calendar_month_v\",\"v_cc_dim_dealer\"]"
       },
       {
         "name": "__PBI_TimeIntelligenceEnabled",
@@ -8087,6 +8087,27 @@
         "joinOnDateBehavior": "datePartOnly",
         "toColumn": "Date",
         "toTable": "LocalDateTable_884b4813-db7e-4c7d-83dc-10197a7ed0f3"
+      },
+      {
+        "name": "a5d7baf6-eddf-46f2-a06d-21fbd863c710",
+        "fromColumn": "yyyymm",
+        "fromTable": "dms_life_cycle_kpi_resource_v",
+        "toColumn": "yyyymm",
+        "toTable": "dms_co_calendar_month_v"
+      },
+      {
+        "name": "37b8d135-9207-4d1c-816b-07279271cd52",
+        "fromColumn": "dealer_id",
+        "fromTable": "dms_life_cycle_kpi_resource_v",
+        "toColumn": "dealer_id",
+        "toTable": "v_cc_dim_dealer"
+      },
+      {
+        "name": "6d019416-5c8c-943e-bdf7-491083c95cbf",
+        "fromColumn": "dms_brand_cd",
+        "fromTable": "v_cc_dim_dealer",
+        "toColumn": "dms_brand_cd",
+        "toTable": "dms_co_brand"
       }
     ],
     "sourceQueryCulture": "ko-KR",
@@ -33285,6 +33306,3245 @@
           }
         ],
         "showAsVariationsOnly": true
+      },
+      {
+        "name": "dms_life_cycle_kpi_resource_v",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "탐색"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "dms_brand_cd",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "1d378bf0-5600-48af-8314-3b291b545ea4",
+            "sourceColumn": "dms_brand_cd",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "dealer_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "797fd32c-a7ff-48af-bac5-43debbead456",
+            "sourceColumn": "dealer_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "kpi_format",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "cbc26325-33ee-4e46-b35f-86c7dd1b800d",
+            "sourceColumn": "kpi_format",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "yyyymm",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "5677c44e-d824-4eb0-9684-6edc52fa3fd1",
+            "sourceColumn": "yyyymm",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "kpi_code_type",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "3fad90b6-d3ba-46fb-ae5d-ea74d2fdfddb",
+            "sourceColumn": "kpi_code_type",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "kpi_code",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "22461ddb-5ece-40fb-abb9-c192d84b2598",
+            "sourceColumn": "kpi_code",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "kpi_code_amt",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "588a8b46-103c-4171-b869-9cd1d89d2e89",
+            "sourceColumn": "kpi_code_amt",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "kpi_code_amt_mtd",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "7f73fcee-8cba-4f76-a019-2c33bc1d327b",
+            "sourceColumn": "kpi_code_amt_mtd",
+            "summarizeBy": "sum"
+          }
+        ],
+        "lineageTag": "3c020394-d396-4bcf-931d-91b2f404417e",
+        "measures": [
+          {
+            "name": "@_CC_CPO_GP",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_CPO_GP",
+            "expression": [
+              "",
+              "",
+              "// 중고차 판매 매출",
+              "VAR CPO_SALES = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_CPO_GP_RS_01\", [kpi_code_amt_mtd] / 1000000, 0))",
+              "",
+              "// 중고차 판매 비용",
+              "VAR CPO_COST = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_CPO_GP_RS_02\", [kpi_code_amt_mtd] / 1000000, 0))",
+              "",
+              "// 중고차 판매 순수익",
+              "VAR CPO_PROFIT = ROUND((CPO_SALES - CPO_COST), 0)",
+              "",
+              "RETURN CPO_PROFIT"
+            ],
+            "lineageTag": "0cbd3745-7e6e-45a8-bde7-d19430484348"
+          },
+          {
+            "name": "@_CC_CPO_GP_DLR_Avg",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_CPO_GP",
+            "expression": [
+              "",
+              " ",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              " ",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM &&",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            dms_life_cycle_kpi_resource_v[dealer_id] <> \"TOTAL\")",
+              " ",
+              "// 중고차 판매 매출",
+              "VAR CPO_SALES = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_CPO_GP_RS_01\", [kpi_code_amt_mtd] / 1000000, 0))",
+              " ",
+              "// 중고차 판매 비용",
+              "VAR CPO_COST = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_CPO_GP_RS_02\", [kpi_code_amt_mtd] / 1000000, 0))",
+              " ",
+              "// 중고차 판매 순수익",
+              "VAR CPO_PROFIT = ROUND((CPO_SALES - CPO_COST), 0)",
+              " ",
+              "// CPO 딜러 수",
+              "VAR CPO_DLR_CNT = COUNTX(FILTER(KPI_RESOURCE_TABLE, dms_life_cycle_kpi_resource_v[kpi_code] = \"BI_CPO_GP_RS_01\" && [kpi_code_amt_mtd] <> 0), DISTINCT(dms_life_cycle_kpi_resource_v[dealer_id]))",
+              " ",
+              "RETURN CPO_PROFIT / CPO_DLR_CNT"
+            ],
+            "lineageTag": "4d174f52-1ef3-4c66-b464-cce4d9cb08dc"
+          },
+          {
+            "name": "@_CC_CPO_GP_Target",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              }
+            ],
+            "displayFolder": "@_CC_CPO_GP",
+            "expression": "SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_CPO_GP_TG_01\", [kpi_code_amt_mtd]))",
+            "lineageTag": "8cef7e44-8670-47be-b0f1-71d905393627"
+          },
+          {
+            "name": "@_CC_BPS",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_CPS/BPS",
+            "expression": [
+              "SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_BP_ARPPU_RS_01\", ROUND([kpi_code_amt_mtd] / 1000000, 0), 0)) +",
+              "         SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_BP_ARPPU_RS_03\", ROUND([kpi_code_amt_mtd] / 1000, 0), 0))"
+            ],
+            "lineageTag": "d8f32edb-76d8-49f7-adbd-debf58b079cd"
+          },
+          {
+            "name": "@_CC_CPS",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_CPS/BPS",
+            "expression": "SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_CP_ARPPU_RS_01\", ROUND([kpi_code_amt_mtd] / 1000000, 0), 0))",
+            "lineageTag": "9d2cdbd5-27c9-4b16-b0aa-013e000c8b13"
+          },
+          {
+            "name": "@_CC_BPUS",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_CPUS/BPUS",
+            "expression": [
+              "SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_BPUS_RS_01\", [kpi_code_amt_mtd], 0))",
+              ""
+            ],
+            "lineageTag": "03e83d90-0b82-48ea-aada-1efdeec1266d"
+          },
+          {
+            "name": "@_CC_BPUS_Aciev",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_CPUS/BPUS",
+            "expression": [
+              "",
+              "",
+              "VAR BPUS_RESULT = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_BPUS_RS_01\", [kpi_code_amt_mtd], 0)) ",
+              "VAR BPUS_TARGET = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_BPUS_TG_01\", [kpi_code_amt_mtd], 0)) ",
+              "",
+              "return IF(BPUS_TARGET == 0, 0, BPUS_RESULT / BPUS_TARGET * 100)"
+            ],
+            "lineageTag": "a1c680b3-7515-46c9-910f-ea9c7c3bc95c"
+          },
+          {
+            "name": "@_CC_BPUS_VSLY",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_CPUS/BPUS",
+            "expression": [
+              "",
+              "",
+              "VAR LY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]) - 1, STRING)   // 전 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "",
+              "// 전 년 수치",
+              "VAR BPUS_RESULT_LY = SUMX(FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = LY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                            dms_life_cycle_kpi_resource_v[dealer_id] = IF(ISBLANK(SELECTEDVALUE(v_cc_dim_dealer[dealer_id])), RELATED(v_cc_dim_dealer[dealer_id]), SELECTEDVALUE(v_cc_dim_dealer[dealer_id])) && ",
+              "                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd])),   ",
+              "                        IF([kpi_code] = \"BI_BPUS_RS_01\", [kpi_code_amt_mtd], 0))",
+              "",
+              "// 당 년 수치",
+              "VAR BPUS_RESULT = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_BPUS_RS_01\", [kpi_code_amt_mtd], 0))",
+              "",
+              "RETURN IF(BPUS_RESULT_LY <> 0, BPUS_RESULT/BPUS_RESULT_LY*100, 0)"
+            ],
+            "lineageTag": "eff6b8fe-efc8-4134-9838-8d1a223b4fa5"
+          },
+          {
+            "name": "@_CC_BPUS_VSLY_DLR_Avg",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_CPUS/BPUS",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 당 년",
+              "VAR YYYY_LY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]) - 1, STRING)   // 전 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            dms_life_cycle_kpi_resource_v[dealer_id] <> \"TOTAL\")",
+              "",
+              "// 전 년 수치",
+              "VAR BPUS_RESULT_LY = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY_LY), IF([kpi_code] = \"BI_BPUS_RS_01\", [kpi_code_amt_mtd], 0))",
+              "",
+              "// 당 년 수치",
+              "VAR BPUS_RESULT = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY), IF([kpi_code] = \"BI_BPUS_RS_01\", [kpi_code_amt_mtd], 0))",
+              "",
+              "RETURN IF(BPUS_RESULT_LY <> 0, BPUS_RESULT/BPUS_RESULT_LY*100, 0)"
+            ],
+            "lineageTag": "1f7a4fe2-4601-49af-af7e-0b849d84e41d"
+          },
+          {
+            "name": "@_CC_CPUS",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_CPUS/BPUS",
+            "expression": "SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_CPUS_RS_01\", [kpi_code_amt_mtd], 0))",
+            "lineageTag": "4ef82d48-a2c0-48f9-8e44-6e244688651f"
+          },
+          {
+            "name": "@_CC_CPUS_Aciev",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_CPUS/BPUS",
+            "expression": [
+              "",
+              "",
+              "VAR CPUS_RESULT = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_CPUS_RS_01\", [kpi_code_amt_mtd], 0)) ",
+              "VAR CPUS_TARGET = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_CPUS_TG_01\", [kpi_code_amt_mtd], 0)) ",
+              "",
+              "return IF(CPUS_TARGET == 0, 0, CPUS_RESULT / CPUS_TARGET * 100)"
+            ],
+            "lineageTag": "b01491f4-4623-4d6d-af32-d3dd2962a10c"
+          },
+          {
+            "name": "@_CC_CPUS_VSLY",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_CPUS/BPUS",
+            "expression": [
+              "",
+              "",
+              "VAR LY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]) - 1, STRING)   // 전 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "",
+              "VAR SELECTED_DEALER = SELECTEDVALUE(dms_life_cycle_kpi_resource_v[dealer_id], \"TOTAL\") // 선택된 딜러",
+              "",
+              "// 전 년 수치",
+              "VAR CPUS_RESULT_LY = SUMX(FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = LY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                dms_life_cycle_kpi_resource_v[dealer_id] = IF(ISBLANK(SELECTEDVALUE(v_cc_dim_dealer[dealer_id])), RELATED(v_cc_dim_dealer[dealer_id]), SELECTEDVALUE(v_cc_dim_dealer[dealer_id])) && dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd])),   ",
+              "                        IF([kpi_code] = \"BI_CPUS_RS_01\", [kpi_code_amt_mtd], 0))",
+              "",
+              "// 당 년 수치",
+              "VAR CPUS_RESULT = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_CPUS_RS_01\", [kpi_code_amt_mtd], 0))",
+              "",
+              "RETURN IF(CPUS_RESULT_LY <> 0, CPUS_RESULT/CPUS_RESULT_LY*100, 0)"
+            ],
+            "lineageTag": "d3953419-06d5-4a4e-99df-e403f1d13d59"
+          },
+          {
+            "name": "@_CC_CPUS_VSLY_DLR_Avg",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_CPUS/BPUS",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 당 년",
+              "VAR YYYY_LY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]) - 1, STRING)   // 전 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            dms_life_cycle_kpi_resource_v[dealer_id] <> \"TOTAL\")",
+              "",
+              "// 전 년 수치",
+              "VAR CPUS_RESULT_LY = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY_LY), IF([kpi_code] = \"BI_CPUS_RS_01\", [kpi_code_amt_mtd], 0))",
+              "",
+              "// 당 년 수치",
+              "VAR CPUS_RESULT = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY), IF([kpi_code] = \"BI_CPUS_RS_01\", [kpi_code_amt_mtd], 0))",
+              "",
+              "RETURN IF(CPUS_RESULT_LY <> 0, CPUS_RESULT/CPUS_RESULT_LY*100, 0)"
+            ],
+            "lineageTag": "e09b1ffd-b6b5-4a79-ab9b-b436d75e1178"
+          },
+          {
+            "name": "@_CC_Act_CRTR_Rate",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_CRTR",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 전 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "VAR SELECTED_DEALER = SELECTEDVALUE(dms_life_cycle_kpi_resource_v[dealer_id], \"TOTAL\") // 선택된 딜러",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                                                dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                                                IF(SELECTED_DEALER <> \"TOTAL\", dms_life_cycle_kpi_resource_v[dealer_id] = SELECTEDVALUE(v_cc_dim_dealer[dealer_id]), ",
+              "                                                                    dms_life_cycle_kpi_resource_v[dealer_id] = \"TOTAL\"))",
+              "",
+              "// 당 년 수치",
+              "VAR Act_Result = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_CRTR_ACTIVE_RS_01\", [kpi_code_amt_mtd], 0)) // Act CRtR  값 ",
+              "VAR UIO8 = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_CRTR_ACTIVE_RS_02\", [kpi_code_amt_mtd], 0)) // UIO8 값 ",
+              "",
+              "RETURN IF(UIO8 <> 0, Act_Result / UIO8 * 100, 0)"
+            ],
+            "lineageTag": "298be076-01ce-4569-982b-9aaf55689215"
+          },
+          {
+            "name": "@_CC_Act_CRTR_VSLY",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_CRTR",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 당 년",
+              "VAR YYYY_LY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]) - 1, STRING)   // 전 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "VAR SELECTED_DEALER = SELECTEDVALUE(dms_life_cycle_kpi_resource_v[dealer_id], \"TOTAL\") // 선택된 딜러",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            IF(SELECTED_DEALER <> \"TOTAL\", dms_life_cycle_kpi_resource_v[dealer_id] = SELECTEDVALUE(v_cc_dim_dealer[dealer_id]), ",
+              "                                                                            dms_life_cycle_kpi_resource_v[dealer_id] = \"TOTAL\"))",
+              "",
+              "// 당 년 수치",
+              "VAR Act_Result = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY), IF([kpi_code] = \"BI_CRTR_ACTIVE_RS_01\", [kpi_code_amt_mtd], 0)) // Act CRtR  값 ",
+              "VAR UIO8 = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY), IF([kpi_code] = \"BI_CRTR_ACTIVE_RS_02\", [kpi_code_amt_mtd], 0)) // UIO8 값 ",
+              "",
+              "// 전 년 수치",
+              "VAR Act_Result_LY = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY_LY), IF([kpi_code] = \"BI_CRTR_ACTIVE_RS_01\", [kpi_code_amt_mtd], 0)) // Act CRtR  값 ",
+              "VAR UIO8_LY = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY_LY), IF([kpi_code] = \"BI_CRTR_ACTIVE_RS_02\", [kpi_code_amt_mtd], 0)) // UIO8 값 ",
+              "",
+              "VAR ACT_CRTR_RATE = IF(UIO8 <> 0, Act_Result / UIO8 * 100, 0)",
+              "VAR ACT_CRTR_LY_RATE = IF(UIO8_LY <> 0, Act_Result_LY / UIO8_LY * 100, 0)",
+              "",
+              "RETURN IF(ACT_CRTR_LY_RATE <> 0, ACT_CRTR_RATE/ACT_CRTR_LY_RATE*100, 0)"
+            ],
+            "lineageTag": "2b129c79-caec-46cb-8356-78fad3e8f309"
+          },
+          {
+            "name": "@_CC_CRTR_Act_DLR_Avg",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_CRTR",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 당 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) && dms_life_cycle_kpi_resource_v[dealer_id] = \"TOTAL\"",
+              "                                            )",
+              "",
+              "VAR Act_Result = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_CRTR_ACTIVE_RS_01\", [kpi_code_amt_mtd], 0))",
+              "VAR UIO8 = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_CRTR_ACTIVE_RS_02\", [kpi_code_amt_mtd], 0))",
+              "",
+              "RETURN IF(UIO8 <> 0, Act_Result / UIO8 * 100, 0)"
+            ],
+            "lineageTag": "0ba8353a-7611-49ff-9502-f3e318df239f"
+          },
+          {
+            "name": "@_CC_CRTR_Own_DLR_Avg",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_CRTR",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 당 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd])",
+              "                                            )",
+              "",
+              "VAR Own_Result = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_CRTR_OWN_RS_01\", [kpi_code_amt_mtd], 0))",
+              "VAR UIO8 = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_CRTR_OWN_RS_02\", [kpi_code_amt_mtd], 0))",
+              "",
+              "RETURN IF(UIO8 <> 0, Own_Result / UIO8 * 100, 0)"
+            ],
+            "lineageTag": "7f9ac464-2a1f-42de-87cb-a66a9cc8777a"
+          },
+          {
+            "name": "@_CC_Own_CRTR_Rate",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_CRTR",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "VAR SELECTED_DEALER = SELECTEDVALUE(dms_life_cycle_kpi_resource_v[dealer_id], \"TOTAL\") // 선택된 딜러",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            IF(SELECTED_DEALER <> \"TOTAL\", dms_life_cycle_kpi_resource_v[dealer_id] = SELECTEDVALUE(v_cc_dim_dealer[dealer_id]), ",
+              "                                                                            dms_life_cycle_kpi_resource_v[dealer_id] <> \"TOTAL\"))",
+              "",
+              "// 당 년 수치",
+              "VAR Own_Result = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_CRTR_OWN_RS_01\", [kpi_code_amt_mtd], 0)) // Own CRtR  값 ",
+              "VAR UIO8 = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_CRTR_OWN_RS_02\", [kpi_code_amt_mtd], 0)) // UIO8 값 ",
+              "",
+              "RETURN IF(UIO8 <> 0, Own_Result / UIO8 * 100, 0)"
+            ],
+            "lineageTag": "d063ca36-2cc4-46cd-be08-655aa78ecfc6"
+          },
+          {
+            "name": "@_CC_Own_CRTR_VSLY",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_CRTR",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 당 년",
+              "VAR YYYY_LY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]) - 1, STRING)   // 전 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "VAR SELECTED_DEALER = SELECTEDVALUE(dms_life_cycle_kpi_resource_v[dealer_id], \"TOTAL\") // 선택된 딜러",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            IF(SELECTED_DEALER <> \"TOTAL\", dms_life_cycle_kpi_resource_v[dealer_id] = SELECTEDVALUE(v_cc_dim_dealer[dealer_id]), ",
+              "                                                                            dms_life_cycle_kpi_resource_v[dealer_id] <> \"TOTAL\"))",
+              "",
+              "// 당 년 수치",
+              "VAR Own_Result = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY), IF([kpi_code] = \"BI_CRTR_OWN_RS_01\", [kpi_code_amt_mtd], 0)) // Own CRtR  값 ",
+              "VAR UIO8 = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY), IF([kpi_code] = \"BI_CRTR_OWN_RS_02\", [kpi_code_amt_mtd], 0)) // UIO8 값 ",
+              "",
+              "// 전 년 수치",
+              "VAR Own_Result_LY = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY_LY), IF([kpi_code] = \"BI_CRTR_OWN_RS_01\", [kpi_code_amt_mtd], 0)) // Own CRtR  값 ",
+              "VAR UIO8_LY = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY_LY), IF([kpi_code] = \"BI_CRTR_OWN_RS_02\", [kpi_code_amt_mtd], 0)) // UIO8 값 ",
+              "",
+              "VAR OWN_CRTR_RATE = IF(UIO8 <> 0, Own_Result / UIO8 * 100, 0)",
+              "VAR OWN_CRTR_LY_RATE = IF(UIO8_LY <> 0, Own_Result_LY / UIO8_LY * 100, 0)",
+              "",
+              "RETURN IF(OWN_CRTR_LY_RATE <> 0, OWN_CRTR_RATE/OWN_CRTR_LY_RATE*100, 0)"
+            ],
+            "lineageTag": "2b778911-d184-4c9a-b0ec-c55f819c689f"
+          },
+          {
+            "name": "@_CC_12M",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_ECRB",
+            "expression": [
+              "",
+              "",
+              "VAR USED_COUPON_CNT = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_12M_RS_01\", [kpi_code_amt_mtd], 0))",
+              "VAR TOTAL_VALID_VEHIC_CNT = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_12M_RS_02\", [kpi_code_amt_mtd], 0))",
+              "",
+              "RETURN IF(TOTAL_VALID_VEHIC_CNT <> 0, USED_COUPON_CNT / TOTAL_VALID_VEHIC_CNT * 100, 0)"
+            ],
+            "lineageTag": "b7fdf5fc-0b7b-4b0a-ba1b-e7fdf49c01f4"
+          },
+          {
+            "name": "@_CC_12M_Capital",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_ECRB",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "VAR CAPITAL_DLR_CNT = IF(SELECTEDVALUE(dms_co_brand[dms_brand_cd]) = \"L\", 3, 4)",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            IF(SELECTEDVALUE(dms_co_brand[dms_brand_cd]) = \"L\", dms_life_cycle_kpi_resource_v[dealer_id] IN {\"DT00000\", \"CW00000\", \"CT00000\"},",
+              "                                                                                                dms_life_cycle_kpi_resource_v[dealer_id] IN {\"TD00000\", \"HS00000\", \"LS00000\", \"KJ00000\"}))",
+              "",
+              "VAR TARGET = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_12M_TG_01\", [kpi_code_amt], 0)) / CAPITAL_DLR_CNT",
+              "",
+              "RETURN IF(TARGET <> 0, TARGET, 0)"
+            ],
+            "lineageTag": "72832f15-0978-4b27-8282-2f39a13e23a2"
+          },
+          {
+            "name": "@_CC_12M_Local",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_ECRB",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "VAR CAPITAL_DLR_CNT = IF(SELECTEDVALUE(dms_co_brand[dms_brand_cd]) = \"L\", 5, 4)",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            IF(SELECTEDVALUE(dms_co_brand[dms_brand_cd]) = \"L\", dms_life_cycle_kpi_resource_v[dealer_id] IN {\"SY00000\", \"KM00000\", \"NY00000\", \"YM00000\", \"JB00000\"},",
+              "                                                                                                dms_life_cycle_kpi_resource_v[dealer_id] IN {\"DM00000\", \"TY00000\", \"PH00000\", \"JM00000\"}))",
+              "",
+              "VAR TARGET = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_12M_TG_01\", [kpi_code_amt], 0)) / CAPITAL_DLR_CNT",
+              "",
+              "RETURN IF(TARGET <> 0, TARGET, 0)"
+            ],
+            "lineageTag": "729cb87e-9a6a-4bb7-a4d7-0bbc90c5fa9a"
+          },
+          {
+            "name": "@_CC_12M_Target",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_ECRB",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "VAR SELECTED_DEALER = SELECTEDVALUE(v_cc_dim_dealer[dealer_id], \"TOTAL\") // 선택된 딜러",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            IF(SELECTED_DEALER <> \"TOTAL\", dms_life_cycle_kpi_resource_v[dealer_id] = SELECTEDVALUE(v_cc_dim_dealer[dealer_id]), dms_life_cycle_kpi_resource_v[dealer_id] = \"TOTAL\"))",
+              "",
+              "VAR TARGET = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_12M_TG_01\", [kpi_code_amt], 0))",
+              "",
+              "RETURN IF(TARGET <> 0, TARGET, 0)"
+            ],
+            "lineageTag": "591811da-5497-493f-a16c-bcbb3fd6db16"
+          },
+          {
+            "name": "@_CC_1M",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_ECRB",
+            "expression": [
+              "",
+              "",
+              "VAR USED_COUPON_CNT = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_1M_RS_01\", [kpi_code_amt_mtd], 0))",
+              "VAR TOTAL_VALID_VEHIC_CNT = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_1M_RS_02\", [kpi_code_amt_mtd], 0))",
+              "",
+              "RETURN IF(TOTAL_VALID_VEHIC_CNT <> 0, USED_COUPON_CNT / TOTAL_VALID_VEHIC_CNT * 100, 0)"
+            ],
+            "lineageTag": "045d12ce-4ad5-4e16-813f-16c935511f4a"
+          },
+          {
+            "name": "@_CC_1M_Capital",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_ECRB",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "VAR CAPITAL_DLR_CNT = IF(SELECTEDVALUE(dms_co_brand[dms_brand_cd]) = \"L\", 3, 4)",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            IF(SELECTEDVALUE(dms_co_brand[dms_brand_cd]) = \"L\", dms_life_cycle_kpi_resource_v[dealer_id] IN {\"DT00000\", \"CW00000\", \"CT00000\"},",
+              "                                                                                                dms_life_cycle_kpi_resource_v[dealer_id] IN {\"TD00000\", \"HS00000\", \"LS00000\", \"KJ00000\"}))",
+              "",
+              "VAR TARGET = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_1M_TG_01\", [kpi_code_amt], 0)) / CAPITAL_DLR_CNT",
+              "",
+              "RETURN IF(TARGET <> 0, TARGET, 0)"
+            ],
+            "lineageTag": "bc8e5645-8256-4d04-a00a-8daef3b9d5c1"
+          },
+          {
+            "name": "@_CC_1M_Local",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_ECRB",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "VAR CAPITAL_DLR_CNT = IF(SELECTEDVALUE(dms_co_brand[dms_brand_cd]) = \"L\", 5, 4)",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            IF(SELECTEDVALUE(dms_co_brand[dms_brand_cd]) = \"L\", dms_life_cycle_kpi_resource_v[dealer_id] IN {\"SY00000\", \"KM00000\", \"NY00000\", \"YM00000\", \"JB00000\"},",
+              "                                                                                                dms_life_cycle_kpi_resource_v[dealer_id] IN {\"DM00000\", \"TY00000\", \"PH00000\", \"JM00000\"}))",
+              "",
+              "VAR TARGET = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_1M_TG_01\", [kpi_code_amt], 0)) / CAPITAL_DLR_CNT",
+              "",
+              "RETURN IF(TARGET <> 0, TARGET, 0)"
+            ],
+            "lineageTag": "ec1d53f7-01fd-47a1-96dd-499a5b3aea67"
+          },
+          {
+            "name": "@_CC_1M_Target",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_ECRB",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "VAR SELECTED_DEALER = SELECTEDVALUE(v_cc_dim_dealer[dealer_id], \"TOTAL\") // 선택된 딜러",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            IF(SELECTED_DEALER <> \"TOTAL\", dms_life_cycle_kpi_resource_v[dealer_id] = SELECTEDVALUE(v_cc_dim_dealer[dealer_id]), dms_life_cycle_kpi_resource_v[dealer_id] = \"TOTAL\"))",
+              "",
+              "VAR TARGET = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_1M_TG_01\", [kpi_code_amt], 0))",
+              "",
+              "RETURN IF(TARGET <> 0, TARGET, 0)"
+            ],
+            "lineageTag": "034fb1e5-fbd2-427d-999b-42b829101aa7"
+          },
+          {
+            "name": "@_CC_24M",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_ECRB",
+            "expression": [
+              "",
+              "",
+              "VAR USED_COUPON_CNT = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_24M_RS_01\", [kpi_code_amt_mtd], 0))",
+              "VAR TOTAL_VALID_VEHIC_CNT = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_24M_RS_02\", [kpi_code_amt_mtd], 0))",
+              "",
+              "RETURN IF(TOTAL_VALID_VEHIC_CNT <> 0, USED_COUPON_CNT / TOTAL_VALID_VEHIC_CNT * 100, 0)"
+            ],
+            "lineageTag": "d7e9e7e9-2d00-4e61-860f-4ebed2ff076f"
+          },
+          {
+            "name": "@_CC_24M_Capital",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_ECRB",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "VAR CAPITAL_DLR_CNT = IF(SELECTEDVALUE(dms_co_brand[dms_brand_cd]) = \"L\", 3, 4)",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            IF(SELECTEDVALUE(dms_co_brand[dms_brand_cd]) = \"L\", dms_life_cycle_kpi_resource_v[dealer_id] IN {\"DT00000\", \"CW00000\", \"CT00000\"},",
+              "                                                                                                dms_life_cycle_kpi_resource_v[dealer_id] IN {\"TD00000\", \"HS00000\", \"LS00000\", \"KJ00000\"}))",
+              "",
+              "VAR TARGET = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_24M_TG_01\", [kpi_code_amt], 0)) / CAPITAL_DLR_CNT",
+              "",
+              "RETURN IF(TARGET <> 0, TARGET, 0)"
+            ],
+            "lineageTag": "ce7ff0d7-79c0-461d-8fa2-c7112709734f"
+          },
+          {
+            "name": "@_CC_24M_Local",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_ECRB",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "VAR CAPITAL_DLR_CNT = IF(SELECTEDVALUE(dms_co_brand[dms_brand_cd]) = \"L\", 5, 4)",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            IF(SELECTEDVALUE(dms_co_brand[dms_brand_cd]) = \"L\", dms_life_cycle_kpi_resource_v[dealer_id] IN {\"SY00000\", \"KM00000\", \"NY00000\", \"YM00000\", \"JB00000\"},",
+              "                                                                                                dms_life_cycle_kpi_resource_v[dealer_id] IN {\"DM00000\", \"TY00000\", \"PH00000\", \"JM00000\"}))",
+              "",
+              "VAR TARGET = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_24M_TG_01\", [kpi_code_amt], 0)) / CAPITAL_DLR_CNT",
+              "",
+              "RETURN IF(TARGET <> 0, TARGET, 0)"
+            ],
+            "lineageTag": "dcca69c2-9368-4876-8fff-27ef76f23289"
+          },
+          {
+            "name": "@_CC_24M_Target",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_ECRB",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "VAR SELECTED_DEALER = SELECTEDVALUE(v_cc_dim_dealer[dealer_id], \"TOTAL\") // 선택된 딜러",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            IF(SELECTED_DEALER <> \"TOTAL\", dms_life_cycle_kpi_resource_v[dealer_id] = SELECTEDVALUE(v_cc_dim_dealer[dealer_id]), dms_life_cycle_kpi_resource_v[dealer_id] = \"TOTAL\"))",
+              "",
+              "VAR TARGET = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_24M_TG_01\", [kpi_code_amt], 0))",
+              "",
+              "RETURN IF(TARGET <> 0, TARGET, 0)"
+            ],
+            "lineageTag": "ea4b5bd7-5565-4396-bcb5-7407bacc956a"
+          },
+          {
+            "name": "@_CC_CLOSE_12M",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_ECRB",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "VAR SELECTED_DEALER = SELECTEDVALUE(v_cc_dim_dealer[dealer_id], \"TOTAL\") // 선택된 딜러",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            IF(SELECTED_DEALER <> \"TOTAL\", dms_life_cycle_kpi_resource_v[dealer_id] = SELECTEDVALUE(v_cc_dim_dealer[dealer_id]), dms_life_cycle_kpi_resource_v[dealer_id] = \"TOTAL\"))",
+              "",
+              "RETURN SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_12M_RS_03\", ROUND([kpi_code_amt_mtd], 1), 0)) / MM"
+            ],
+            "lineageTag": "ed4469f2-2abf-4c8e-b8c5-60fd6c827a38"
+          },
+          {
+            "name": "@_CC_CLOSE_1M",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_ECRB",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "VAR SELECTED_DEALER = SELECTEDVALUE(v_cc_dim_dealer[dealer_id], \"TOTAL\") // 선택된 딜러",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            IF(SELECTED_DEALER <> \"TOTAL\", dms_life_cycle_kpi_resource_v[dealer_id] = SELECTEDVALUE(v_cc_dim_dealer[dealer_id]), dms_life_cycle_kpi_resource_v[dealer_id] = \"TOTAL\"))",
+              "",
+              "RETURN SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_1M_RS_03\", ROUNDDOWN([kpi_code_amt_mtd], 1), 0)) / MM"
+            ],
+            "lineageTag": "78ea2664-661a-4a7a-9df4-a6ebb4ebe0cf"
+          },
+          {
+            "name": "@_CC_CLOSE_24M",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_ECRB",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "VAR SELECTED_DEALER = SELECTEDVALUE(v_cc_dim_dealer[dealer_id], \"TOTAL\") // 선택된 딜러",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            IF(SELECTED_DEALER <> \"TOTAL\", dms_life_cycle_kpi_resource_v[dealer_id] = SELECTEDVALUE(v_cc_dim_dealer[dealer_id]), dms_life_cycle_kpi_resource_v[dealer_id] = \"TOTAL\"))",
+              "",
+              "RETURN SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_24M_RS_03\", ROUND([kpi_code_amt_mtd], 1), 0)) / MM"
+            ],
+            "lineageTag": "de41cdbf-0c1b-42a1-b5e6-71cbda73fcdf"
+          },
+          {
+            "name": "@_CC_Finance",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_FINANCE",
+            "expression": [
+              "",
+              "",
+              "VAR FIN = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_TFSKR_FIN_RS_01\", [kpi_code_amt_mtd], 0))",
+              "VAR SALES = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_TFSKR_FIN_RS_02\", [kpi_code_amt_mtd], 0))",
+              "",
+              "RETURN IF(SALES <> 0, FIN / SALES * 100, 0)"
+            ],
+            "lineageTag": "d0501322-a351-4954-81a3-057d991bb34d"
+          },
+          {
+            "name": "@_CC_Finance_DLR_Avg",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_FINANCE",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "VAR SELECTED_DEALER = SELECTEDVALUE(v_cc_dim_dealer[dealer_id], \"TOTAL\") // 선택된 딜러",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            dms_life_cycle_kpi_resource_v[dealer_id] <> \"TOTAL\")",
+              "",
+              "// 딜러 전체",
+              "VAR VAL1 = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_TFSKR_FIN_RS_01\", [kpi_code_amt_mtd], 0))",
+              "",
+              "VAR VAL2 = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_TFSKR_FIN_RS_02\", [kpi_code_amt_mtd], 0))",
+              "",
+              "RETURN IF(VAL2 <> 0, VAL1/VAL2*100, 0)"
+            ],
+            "lineageTag": "0616bdb0-9e8c-40d3-8a3e-f21ce40472e6"
+          },
+          {
+            "name": "@_CC_Finance_VSLY",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_FINANCE",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 당 년",
+              "VAR YYYY_LY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]) - 1, STRING)   // 전 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "VAR SELECTED_DEALER = SELECTEDVALUE(v_cc_dim_dealer[dealer_id], \"TOTAL\") // 선택된 딜러",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            IF(SELECTED_DEALER <> \"TOTAL\", dms_life_cycle_kpi_resource_v[dealer_id] = SELECTEDVALUE(v_cc_dim_dealer[dealer_id]), ",
+              "                                                                            dms_life_cycle_kpi_resource_v[dealer_id] <> \"TOTAL\"))",
+              "",
+              "// 전 년 수치",
+              "VAR VAL1_LY = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY_LY && dms_life_cycle_kpi_resource_v[dealer_id] <> \"TM00000\"), IF([kpi_code] = \"BI_TFSKR_FIN_RS_01\", [kpi_code_amt_mtd], 0)) ",
+              "VAR VAL2_LY = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY_LY && dms_life_cycle_kpi_resource_v[dealer_id] <> \"TM00000\"), IF([kpi_code] = \"BI_TFSKR_FIN_RS_02\", [kpi_code_amt_mtd], 0))",
+              "",
+              "// 당 년 수치",
+              "VAR VAL1 = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && dms_life_cycle_kpi_resource_v[dealer_id] <> \"TM00000\"), IF([kpi_code] = \"BI_TFSKR_FIN_RS_01\", [kpi_code_amt_mtd], 0))",
+              "VAR VAL2 = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && dms_life_cycle_kpi_resource_v[dealer_id] <> \"TM00000\"), IF([kpi_code] = \"BI_TFSKR_FIN_RS_02\", [kpi_code_amt_mtd], 0))",
+              "",
+              "VAR RST_LY = IF(VAL2_LY <> 0, VAL1_LY / VAL2_LY * 100, 0)",
+              "VAR RST = IF(VAL2 <> 0, VAL1 / VAL2 * 100, 0)",
+              "",
+              "RETURN IF(RST_LY <> 0, RST/RST_LY*100, 0)"
+            ],
+            "lineageTag": "7b8c8e86-97f2-4296-b0b9-fc3103d06ccd"
+          },
+          {
+            "name": "@_CC_Insurance",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_INSURANCE",
+            "expression": [
+              "",
+              "",
+              "VAR INS = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_TFSKR_INS_RS_01\", [kpi_code_amt_mtd], 0))",
+              "VAR SALES = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_TFSKR_INS_RS_02\", [kpi_code_amt_mtd], 0))",
+              "",
+              "RETURN IF(SALES <> 0, INS / SALES * 100, 0)"
+            ],
+            "lineageTag": "4035741d-5463-4b6c-a0af-0c1477dba570"
+          },
+          {
+            "name": "@_CC_Insurance_Achiev",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_INSURANCE",
+            "expression": [
+              "",
+              "",
+              "VAR MM = SELECTEDVALUE(dms_co_calendar_month_v[month])",
+              "",
+              "VAR RST_VAL1 = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_TFSKR_INS_RS_01\", [kpi_code_amt_mtd], 0))",
+              "VAR RST_VAL2 = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_TFSKR_INS_RS_02\", [kpi_code_amt_mtd], 0))",
+              "",
+              "VAR TG = LOOKUPVALUE(dms_life_cycle_kpi_resource_v[kpi_code_amt], dms_co_calendar_month_v[year], SELECTEDVALUE(dms_co_calendar_month_v[year]), ",
+              "                                                            dms_life_cycle_kpi_resource_v[kpi_code], \"BI_TFSKR_INS_TG_01\",",
+              "                                                            dms_life_cycle_kpi_resource_v[dealer_id], \"TOTAL\")",
+              "",
+              "// 결과, 목표 계산",
+              "VAR RST = IF(RST_VAL2 <> 0, RST_VAL1 / RST_VAL2 * 100, 0)",
+              "",
+              "RETURN IF(TG <> 0, RST / TG * 100, 0)"
+            ],
+            "lineageTag": "96b3835f-74be-4f2d-9b11-d1dd0cd0705c"
+          },
+          {
+            "name": "@_CC_Insurance_DLR_Avg",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_INSURANCE",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "",
+              "// 딜러 전체",
+              "VAR VAL1 = SUMX(FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                dms_life_cycle_kpi_resource_v[dealer_id] = RELATED(v_cc_dim_dealer[dealer_id]) && dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd])), ",
+              "                        IF([kpi_code] = \"BI_TFSKR_INS_RS_01\", [kpi_code_amt_mtd], 0))",
+              "",
+              "VAR VAL2 = SUMX(FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                dms_life_cycle_kpi_resource_v[dealer_id] = RELATED(v_cc_dim_dealer[dealer_id]) && dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd])), ",
+              "                        IF([kpi_code] = \"BI_TFSKR_INS_RS_02\", [kpi_code_amt_mtd], 0))",
+              "",
+              "RETURN IF(VAL2 <> 0, VAL1/VAL2*100, 0)"
+            ],
+            "lineageTag": "15e9338c-ad9a-472c-b5cf-729c6a5d77ed"
+          },
+          {
+            "name": "@_CC_Insurance_VSLY",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_INSURANCE",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 당 년",
+              "VAR YYYY_LY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]) - 1, STRING)   // 전 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "VAR SELECTED_DEALER = SELECTEDVALUE(v_cc_dim_dealer[dealer_id], \"TOTAL\") // 선택된 딜러",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            IF(SELECTED_DEALER <> \"TOTAL\", dms_life_cycle_kpi_resource_v[dealer_id] = SELECTEDVALUE(v_cc_dim_dealer[dealer_id]), ",
+              "                                                                            dms_life_cycle_kpi_resource_v[dealer_id] <> \"TOTAL\"))",
+              "",
+              "// 전 년 수치",
+              "VAR VAL1_LY = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY_LY && dms_life_cycle_kpi_resource_v[dealer_id] <> \"TM00000\"), IF([kpi_code] = \"BI_TFSKR_INS_RS_01\", [kpi_code_amt_mtd], 0)) ",
+              "VAR VAL2_LY = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY_LY && dms_life_cycle_kpi_resource_v[dealer_id] <> \"TM00000\"), IF([kpi_code] = \"BI_TFSKR_INS_RS_02\", [kpi_code_amt_mtd], 0))",
+              "",
+              "// 당 년 수치",
+              "VAR VAL1 = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && dms_life_cycle_kpi_resource_v[dealer_id] <> \"TM00000\"), IF([kpi_code] = \"BI_TFSKR_INS_RS_01\", [kpi_code_amt_mtd], 0))",
+              "VAR VAL2 = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && dms_life_cycle_kpi_resource_v[dealer_id] <> \"TM00000\"), IF([kpi_code] = \"BI_TFSKR_INS_RS_02\", [kpi_code_amt_mtd], 0))",
+              "",
+              "VAR RST_LY = IF(VAL2_LY <> 0, VAL1_LY / VAL2_LY * 100, 0)",
+              "VAR RST = IF(VAL2 <> 0, VAL1 / VAL2 * 100, 0)",
+              "",
+              "RETURN IF(RST_LY <> 0, RST/RST_LY*100, 0)"
+            ],
+            "lineageTag": "9c5279d7-abf9-4e54-ad8c-cc4dde34bccd"
+          },
+          {
+            "name": "@_CC_12M_Status",
+            "displayFolder": "@_CC_KPI_STATUS",
+            "expression": [
+              "IF([@_CC_CLOSE_12M] - [@_CC_12M_Target] > 0, \"B\", \"R\")",
+              "",
+              ""
+            ],
+            "lineageTag": "bf3bd10a-980e-4016-8fae-b73d1d0c5596"
+          },
+          {
+            "name": "@_CC_1M_Status",
+            "displayFolder": "@_CC_KPI_STATUS",
+            "expression": [
+              "IF([@_CC_CLOSE_1M] - [@_CC_1M_Target] > 0, \"B\", \"R\")",
+              "",
+              ""
+            ],
+            "lineageTag": "167de514-efb5-408c-9ca8-e48a070cacbf"
+          },
+          {
+            "name": "@_CC_24M_Status",
+            "displayFolder": "@_CC_KPI_STATUS",
+            "expression": [
+              "IF([@_CC_CLOSE_24M] - [@_CC_24M_Target] > 0, \"B\", \"R\")",
+              "",
+              ""
+            ],
+            "lineageTag": "f93fe4a0-6a0b-4108-9c5e-0b2a3d37cd07"
+          },
+          {
+            "name": "@_CC_Act_CRTR_DLR_Status",
+            "displayFolder": "@_CC_KPI_STATUS",
+            "expression": "IF([@_CC_CRTR_Act_DLR_Avg] - [@_CC_Act_CRTR_Rate] < 0, \"B\", \"R\")",
+            "lineageTag": "dddec3b6-8ffe-4cb2-a599-6da25db2277d"
+          },
+          {
+            "name": "@_CC_BP_DLR_Status",
+            "displayFolder": "@_CC_KPI_STATUS",
+            "expression": "IF([@_CC_BP_DLR_Avg] - [@_CC_BP_Unit_Price] < 0, \"B\", \"R\")",
+            "lineageTag": "7d443bae-b2c5-485e-9884-fb3babb0e09c"
+          },
+          {
+            "name": "@_CC_BPUS_DLR_Status",
+            "displayFolder": "@_CC_KPI_STATUS",
+            "expression": "IF([@_CC_BPUS_VSLY_DLR_Avg] - [@_CC_BPUS_VSLY] < 0, \"B\", \"R\")",
+            "lineageTag": "71babea4-46c4-446b-9fd8-4e4eb983f631"
+          },
+          {
+            "name": "@_CC_CP_DLR_Status",
+            "displayFolder": "@_CC_KPI_STATUS",
+            "expression": "IF([@_CC_CP_DLR_Avg] - [@_CC_CP_Unit_Price] < 0, \"B\", \"R\")",
+            "lineageTag": "7728dd7b-f0c9-4c44-9283-a69d5420c816"
+          },
+          {
+            "name": "@_CC_CPUS_DLR_Status",
+            "displayFolder": "@_CC_KPI_STATUS",
+            "expression": "IF([@_CC_CPUS_VSLY_DLR_Avg] - [@_CC_CPUS_VSLY] < 0, \"B\", \"R\")",
+            "lineageTag": "ddb5c5f2-1a5d-45db-b219-bcbe8da7c03b"
+          },
+          {
+            "name": "@_CC_LCI_DLR_Status",
+            "displayFolder": "@_CC_KPI_STATUS",
+            "expression": "IF([@_CC_LCI_DLR_Avg] - [@_CC_LCI] < 0, \"B\", \"R\")",
+            "lineageTag": "d9aadd9b-05ed-48cc-928d-20292cb328e7"
+          },
+          {
+            "name": "@_CC_NPS_DLR_Status",
+            "displayFolder": "@_CC_KPI_STATUS",
+            "expression": "IF([@_CC_NPS_DLR_Avg2] - [@_CC_NPS2] < 0, \"B\", \"R\")",
+            "lineageTag": "7493d9e0-6f56-4aa3-95e1-91835ec12ee9"
+          },
+          {
+            "name": "@_CC_Own_CRTR_DLR_Status",
+            "displayFolder": "@_CC_KPI_STATUS",
+            "expression": "IF([@_CC_CRTR_Own_DLR_Avg] - [@_CC_Own_CRTR_Rate] < 0, \"B\", \"R\")",
+            "lineageTag": "f326a1b0-3a76-4435-b70c-4b9aed7036de"
+          },
+          {
+            "name": "@_CC_Repurchase_DLR_Status",
+            "displayFolder": "@_CC_KPI_STATUS",
+            "expression": "IF([@_CC_Repurchase_O_DLR_Avg] - [@_CC_Repurchase_O] < 0, \"B\", \"R\")",
+            "lineageTag": "02459247-9737-43a9-8523-478ede518df9"
+          },
+          {
+            "name": "@_CC_TCM_Sales_Status",
+            "displayFolder": "@_CC_KPI_STATUS",
+            "expression": "IF([@_CC_TCM_Sales] - [@_CC_TCM_Sales_Target] > 0, \"B\", \"R\")",
+            "lineageTag": "6acdaf47-f2da-4c9b-b627-509ba192efa2"
+          },
+          {
+            "name": "@_TFSKR_FIN_DLR_Status",
+            "displayFolder": "@_CC_KPI_STATUS",
+            "expression": "IF([@_CC_Finance] - [@_CC_Finance_DLR_Avg] > 0, \"B\", \"R\")",
+            "lineageTag": "f3933fd1-7112-4f04-88b8-77d0dd7947d4"
+          },
+          {
+            "name": "@_TFSKR_INS_DLR_Status",
+            "displayFolder": "@_CC_KPI_STATUS",
+            "expression": "IF([@_CC_Insurance] - [@_CC_Insurance_DLR_Avg] > 0, \"B\", \"R\")",
+            "lineageTag": "b7796093-ba71-4242-a60b-2d280b4260a8"
+          },
+          {
+            "name": "@_CC_LCI",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_LCI",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "VAR SELECTED_DEALER = SELECTEDVALUE(v_cc_dim_dealer[dealer_id], \"TOTAL\") // 선택된 딜러",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            IF(SELECTED_DEALER <> \"TOTAL\", dms_life_cycle_kpi_resource_v[dealer_id] = SELECTEDVALUE(v_cc_dim_dealer[dealer_id]), dms_life_cycle_kpi_resource_v[dealer_id] = \"TOTAL\"))",
+              "",
+              "VAR LC_CNT = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_LC_RS_01\", [kpi_code_amt], 0)) ",
+              "VAR UIO = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_LC_RS_02\", [kpi_code_amt], 0))",
+              "",
+              "RETURN IF(UIO <> 0, LC_CNT/UIO*100, 0)"
+            ],
+            "lineageTag": "a39a7f0e-7fea-489d-936b-e932708984d3"
+          },
+          {
+            "name": "@_CC_LCI_DLR_Avg",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_LCI",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "VAR SELECTED_DEALER = SELECTEDVALUE(v_cc_dim_dealer[dealer_id], \"TOTAL\") // 선택된 딜러",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            dms_life_cycle_kpi_resource_v[dealer_id] = \"TOTAL\")",
+              "",
+              "// 딜러 전체",
+              "VAR LC_CNT = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_LC_RS_01\", [kpi_code_amt], 0))",
+              "VAR UIO = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_LC_RS_02\", [kpi_code_amt], 0))",
+              "",
+              "RETURN IF(UIO <> 0, LC_CNT/UIO*100, 0)"
+            ],
+            "lineageTag": "6e1ab469-418c-403e-911b-0d3c65f5a227"
+          },
+          {
+            "name": "@_CC_LCI_VSLY",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_LCI",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 당 년",
+              "VAR YYYY_LY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]) - 1, STRING)   // 전 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "VAR SELECTED_DEALER = SELECTEDVALUE(v_cc_dim_dealer[dealer_id], \"TOTAL\") // 선택된 딜러",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            IF(SELECTED_DEALER <> \"TOTAL\", dms_life_cycle_kpi_resource_v[dealer_id] = SELECTEDVALUE(v_cc_dim_dealer[dealer_id]), ",
+              "                                                                            dms_life_cycle_kpi_resource_v[dealer_id] = \"TOTAL\"))",
+              "",
+              "// 전 년 수치",
+              "VAR LC_CNT_LY = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY_LY), IF([kpi_code] = \"BI_LC_RS_01\", [kpi_code_amt], 0))",
+              "VAR UIO_LY = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY_LY), IF([kpi_code] = \"BI_LC_RS_02\", [kpi_code_amt], 0)) ",
+              "",
+              "// 당 년 수치",
+              "VAR LC_CNT = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY), IF([kpi_code] = \"BI_LC_RS_01\", [kpi_code_amt], 0))",
+              "VAR UIO = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY), IF([kpi_code] = \"BI_LC_RS_02\", [kpi_code_amt], 0)) ",
+              "",
+              "// LCI 계산",
+              "VAR LCI_LY = IF(UIO_LY <> 0, ROUNDDOWN(LC_CNT_LY/UIO_LY*100, 1), 0)",
+              "VAR LCI = IF(UIO <> 0, ROUNDDOWN(LC_CNT/UIO*100, 1), 0)",
+              "",
+              "RETURN IF(LCI_LY <> 0, LCI/LCI_LY*100, 0)"
+            ],
+            "lineageTag": "9a408371-1dae-4e0c-84fb-9800dc027a26"
+          },
+          {
+            "name": "@_CC_MP_Result",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_MP",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "",
+              "VAR SELECTED_DEALER = SELECTEDVALUE(v_cc_dim_dealer[dealer_id], \"TOTAL\") // 선택된 딜러",
+              "",
+              "// FEE_AMT, SALES_AMT 산출",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) <= MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            IF(SELECTED_DEALER <> \"TOTAL\", dms_life_cycle_kpi_resource_v[dealer_id] = SELECTEDVALUE(v_cc_dim_dealer[dealer_id]), 1=1) &&",
+              "                                            dms_life_cycle_kpi_resource_v[dealer_id] <> \"TOTAL\")",
+              "",
+              "VAR FEE_AMT = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_MP_UNIT_RS_01\", ROUND([kpi_code_amt] / 1000000, 0), 0)) // 수입 비용",
+              "VAR SALES_AMT = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_MP_UNIT_RS_02\", ROUND([kpi_code_amt] / 1000000, 0), 0)) // 판매 비용",
+              "",
+              "// SERVICE GP 산출",
+              "VAR VEHICLE_SVC_GP_TABLE =   ADDCOLUMNS(",
+              "                                NATURALLEFTOUTERJOIN(",
+              "                                    SELECTCOLUMNS(",
+              "                                        FILTER(KPI_RESOURCE_TABLE, dms_life_cycle_kpi_resource_v[kpi_code_type] = \"DMS_BI_VC002\" && dms_life_cycle_kpi_resource_v[kpi_code] = \"BI_MP_UNIT_RS_03\"),",
+              "                                        \"SERVICE_SALES\", dms_life_cycle_kpi_resource_v[kpi_code_amt],",
+              "                                        \"DEALER_ID\", dms_life_cycle_kpi_resource_v[dealer_id],",
+              "                                        \"YYYYMM\", dms_life_cycle_kpi_resource_v[yyyymm]",
+              "                                    ),",
+              "                                    SELECTCOLUMNS(",
+              "                                        FILTER(KPI_RESOURCE_TABLE, dms_life_cycle_kpi_resource_v[kpi_code_type] = \"DMS_BI_VC002\" && dms_life_cycle_kpi_resource_v[kpi_code] = \"BI_MP_UNIT_RS_04\"),",
+              "                                        \"SERVICE_COST\", dms_life_cycle_kpi_resource_v[kpi_code_amt],",
+              "                                        \"DEALER_ID\", dms_life_cycle_kpi_resource_v[dealer_id],",
+              "                                        \"YYYYMM\", dms_life_cycle_kpi_resource_v[yyyymm]",
+              "                                    )",
+              "                                ),",
+              "                                \"SERVICE_GP\",",
+              "                                [SERVICE_SALES] - [SERVICE_COST]",
+              "                            )",
+              "",
+              "VAR EXP_MGL_PROFIT = FEE_AMT - SALES_AMT",
+              "VAR GRP_SALESGP_CNT = SUMX(VEHICLE_SVC_GP_TABLE, ROUND([SERVICE_GP] / 1000000, 0))",
+              "VAR SALES_CNT = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_MP_UNIT_RS_05\", [kpi_code_amt_mtd], 0)) // 신차 판매 수",
+              "",
+              "RETURN IF(SALES_CNT <> 0, (GRP_SALESGP_CNT + EXP_MGL_PROFIT) / SALES_CNT, 0)"
+            ],
+            "lineageTag": "d6d86887-fc56-4ee0-a6cb-59a3ae8d5595"
+          },
+          {
+            "name": "@_CC_MP_Result_DLR_Avg",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_MP",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "",
+              "// FEE_AMT, SALES_AMT 산출",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) <= MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            dms_life_cycle_kpi_resource_v[dealer_id] <> \"TOTAL\")",
+              "",
+              "VAR FEE_AMT = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_MP_UNIT_RS_01\", ROUND([kpi_code_amt] / 1000000, 0), 0)) // 수입 비용",
+              "VAR SALES_AMT = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_MP_UNIT_RS_02\", ROUND([kpi_code_amt] / 1000000, 0), 0)) // 판매 비용",
+              "",
+              "// SERVICE GP 산출",
+              "VAR VEHICLE_SVC_GP_TABLE =   ADDCOLUMNS(",
+              "                                NATURALLEFTOUTERJOIN(",
+              "                                    SELECTCOLUMNS(",
+              "                                        FILTER(KPI_RESOURCE_TABLE, dms_life_cycle_kpi_resource_v[kpi_code_type] = \"DMS_BI_VC002\" && dms_life_cycle_kpi_resource_v[kpi_code] = \"BI_MP_UNIT_RS_03\"),",
+              "                                        \"SERVICE_SALES\", dms_life_cycle_kpi_resource_v[kpi_code_amt],",
+              "                                        \"DEALER_ID\", dms_life_cycle_kpi_resource_v[dealer_id],",
+              "                                        \"YYYYMM\", dms_life_cycle_kpi_resource_v[yyyymm]",
+              "                                    ),",
+              "                                    SELECTCOLUMNS(",
+              "                                        FILTER(KPI_RESOURCE_TABLE, dms_life_cycle_kpi_resource_v[kpi_code_type] = \"DMS_BI_VC002\" && dms_life_cycle_kpi_resource_v[kpi_code] = \"BI_MP_UNIT_RS_04\"),",
+              "                                        \"SERVICE_COST\", dms_life_cycle_kpi_resource_v[kpi_code_amt],",
+              "                                        \"DEALER_ID\", dms_life_cycle_kpi_resource_v[dealer_id],",
+              "                                        \"YYYYMM\", dms_life_cycle_kpi_resource_v[yyyymm]",
+              "                                    )",
+              "                                ),",
+              "                                \"SERVICE_GP\",",
+              "                                [SERVICE_SALES] - [SERVICE_COST]",
+              "                            )",
+              "",
+              "VAR EXP_MGL_PROFIT = FEE_AMT - SALES_AMT",
+              "VAR GRP_SALESGP_CNT = SUMX(VEHICLE_SVC_GP_TABLE, ROUND([SERVICE_GP] / 1000000, 0))",
+              "VAR SALES_CNT = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_MP_UNIT_RS_05\", [kpi_code_amt], 0)) // 신차 판매 수",
+              "",
+              "RETURN IF(SALES_CNT <> 0, (GRP_SALESGP_CNT + EXP_MGL_PROFIT) / SALES_CNT, 0)"
+            ],
+            "lineageTag": "84fa1160-2929-4cbd-9a1b-ccfedf0bfc97"
+          },
+          {
+            "name": "@_CC_MP_Target",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_MP",
+            "expression": [
+              "",
+              "",
+              "VAR MM = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[month]), INTEGER)",
+              "",
+              "RETURN SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_MP_UNIT_TG_01\", [kpi_code_amt_mtd] / 1000 / MM, 0))"
+            ],
+            "lineageTag": "aa486706-a893-4476-95c5-8675f2c3d0fd"
+          },
+          {
+            "name": "@_CC_NPS_DLR_Avg",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_NPS",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "VAR SELECTED_DEALER = SELECTEDVALUE(v_cc_dim_dealer[dealer_id], \"TOTAL\") // 선택된 딜러",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            IF(SELECTED_DEALER <> \"TOTAL\", dms_life_cycle_kpi_resource_v[dealer_id] = SELECTEDVALUE(v_cc_dim_dealer[dealer_id]), 1=1) &&",
+              "                                            dms_life_cycle_kpi_resource_v[dealer_id] <> \"TOTAL\")",
+              "",
+              "// 딜러 전체",
+              "VAR NPS_CNT = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_NPS_RS_01\", [kpi_code_amt_mtd], 0))",
+              "VAR NPS_SCORE = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_NPS_RS_02\", [kpi_code_amt_mtd], 0))",
+              "",
+              "RETURN IF(NPS_CNT <> 0, NPS_SCORE/NPS_CNT*10, 0)"
+            ],
+            "lineageTag": "cdc69f29-e7f0-49fa-905e-4ec98858f4fb"
+          },
+          {
+            "name": "@_CC_NPS_DLR_Avg2",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_NPS",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            dms_life_cycle_kpi_resource_v[dealer_id] = \"TOTAL\")",
+              "",
+              "VAR NPS = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_NPS_RS_03\", [kpi_code_amt], 0))",
+              "",
+              "RETURN NPS"
+            ],
+            "lineageTag": "35115ff4-fb18-4ba7-aa6d-78ff79052b1d"
+          },
+          {
+            "name": "@_CC_NPS_RESULT",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_NPS",
+            "expression": [
+              "",
+              "",
+              "VAR NPS_CNT = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_NPS_RS_01\", [kpi_code_amt_mtd], 0)) ",
+              "VAR NPS_SCORE = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_NPS_RS_02\", [kpi_code_amt_mtd], 0))",
+              "",
+              "RETURN IF(NPS_CNT <> 0, NPS_SCORE/NPS_CNT*10, 0)"
+            ],
+            "lineageTag": "57f55e5f-9c14-4f76-9fe4-63016ea035b6"
+          },
+          {
+            "name": "@_CC_NPS_VSLY",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_NPS",
+            "expression": [
+              "",
+              "",
+              "VAR LY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]) - 1, STRING)   // 전 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "",
+              "",
+              "// 전 년 수치",
+              "VAR NPS_CNT_LY = SUMX(FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = LY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && dms_life_cycle_kpi_resource_v[dealer_id] = RELATED(v_cc_dim_dealer[dealer_id])),   ",
+              "                        IF([kpi_code] = \"BI_NPS_RS_01\", [kpi_code_amt_mtd], 0))",
+              "",
+              "VAR NPS_SCORE_LY = SUMX(FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = LY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && dms_life_cycle_kpi_resource_v[dealer_id] = RELATED(v_cc_dim_dealer[dealer_id])),   ",
+              "                        IF([kpi_code] = \"BI_NPS_RS_02\", [kpi_code_amt_mtd], 0))",
+              "",
+              "// 당 년 수치",
+              "VAR NPS_CNT = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_NPS_RS_01\", [kpi_code_amt_mtd], 0)) ",
+              "VAR NPS_SCORE = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_NPS_RS_02\", [kpi_code_amt_mtd], 0))",
+              "",
+              "// NPS 계산",
+              "VAR NPS_LY = IF(NPS_CNT_LY <> 0, NPS_SCORE_LY/NPS_CNT_LY*10, 0)",
+              "VAR NPS = IF(NPS_CNT <> 0, NPS_SCORE/NPS_CNT*10, 0)",
+              "",
+              "RETURN IF(NPS_LY <> 0, NPS/NPS_LY*100, 0)"
+            ],
+            "lineageTag": "c718bf7b-edfe-4eda-a1f3-e9fd23a7f45f"
+          },
+          {
+            "name": "@_CC_NPS_VSLY2",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_NPS",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR YYYY_LY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]) - 1, STRING)   // 전 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "VAR SELECTED_DEALER = SELECTEDVALUE(v_cc_dim_dealer[dealer_id], \"TOTAL\") // 선택된 딜러",
+              "",
+              "//LEFT(dms_vc_kpi_resource_v[yyyymm], 4) = YYYY &&",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            IF(SELECTED_DEALER <> \"TOTAL\", dms_life_cycle_kpi_resource_v[dealer_id] = SELECTEDVALUE(v_cc_dim_dealer[dealer_id]), dms_life_cycle_kpi_resource_v[dealer_id] = \"TOTAL\"))",
+              "",
+              "// 전 년 수치",
+              "VAR NPS_LY = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY_LY), IF([kpi_code] = \"BI_NPS_RS_03\", [kpi_code_amt_mtd], 0))",
+              "",
+              "// 당 년 수치",
+              "VAR NPS = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY), IF([kpi_code] = \"BI_NPS_RS_03\", [kpi_code_amt_mtd], 0))",
+              "",
+              "RETURN IF(NPS_LY <> 0, NPS/NPS_LY*100, 0)"
+            ],
+            "lineageTag": "eeb92894-557c-4c2d-a302-fb8c335888e5"
+          },
+          {
+            "name": "@_CC_NPS2",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_NPS",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "VAR SELECTED_DEALER = SELECTEDVALUE(v_cc_dim_dealer[dealer_id], \"TOTAL\") // 선택된 딜러",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            IF(SELECTED_DEALER <> \"TOTAL\", dms_life_cycle_kpi_resource_v[dealer_id] = SELECTEDVALUE(v_cc_dim_dealer[dealer_id]), dms_life_cycle_kpi_resource_v[dealer_id] = \"TOTAL\"))",
+              "",
+              "VAR NPS = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_NPS_RS_03\", [kpi_code_amt], 0))",
+              "VAR DEALER_CNT = COUNTX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_NPS_RS_03\", [dealer_id]))",
+              "",
+              "RETURN IF(DEALER_CNT <> 0, NPS / DEALER_CNT, 0)",
+              "",
+              "/* 추 후 개발되면 변경",
+              "VAR CNT = SUMX(dms_vc_kpi_resource_v, IF([kpi_code] = \"BI_NPS_RS_01\", [kpi_code_amt_mtd], 0))",
+              "VAR SCORE = SUMX(dms_vc_kpi_resource_v, IF([kpi_code] = \"BI_NPS_RS_02\", [kpi_code_amt_mtd], 0))",
+              "",
+              "VAR NPS = IF(CNT <> 0, SCORE / CNT * 100, 0)",
+              "*/"
+            ],
+            "lineageTag": "acf6fdd7-b2c0-4674-93df-08859945c174"
+          },
+          {
+            "name": "@_CC_OP",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_OP",
+            "expression": "SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_OP_RS_01\", [kpi_code_amt_mtd] / 1000000, 0))",
+            "lineageTag": "e72bc0c0-b551-4908-95be-77e2006fa655"
+          },
+          {
+            "name": "@_CC_OP_RATE",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_OP",
+            "expression": [
+              "",
+              "",
+              "VAR OP = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_OP_RS_01\", [kpi_code_amt_mtd] / 1000000, 0)) ",
+              "",
+              "// 분야 별 판매 매출",
+              "VAR VEHICLE_SALES = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_OP_RS_02\", [kpi_code_amt_mtd] / 1000000, 0))",
+              "VAR USED_VEHICLE_SALES = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_OP_RS_04\", [kpi_code_amt_mtd] / 1000000, 0))",
+              "VAR SERVICE_SALES = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_OP_RS_03\", [kpi_code_amt_mtd] / 1000000, 0))",
+              "",
+              "VAR SALES = (VEHICLE_SALES + USED_VEHICLE_SALES + SERVICE_SALES)",
+              "",
+              "RETURN IF(SALES <> 0, OP/SALES*100, 0)"
+            ],
+            "lineageTag": "6445c978-e0c4-4b36-b39c-a35716e00a78"
+          },
+          {
+            "name": "@_CC_OP_RATE_DLR_Avg",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_OP",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "",
+              "// OP",
+              "VAR OP = SUMX(FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                dms_life_cycle_kpi_resource_v[dealer_id] = RELATED(v_cc_dim_dealer[dealer_id]) && ",
+              "                                dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd])), ",
+              "                        IF([kpi_code] = \"BI_OP_RS_01\", [kpi_code_amt_mtd] / 1000000, 0))",
+              "",
+              "// 분야 별 판매 매출",
+              "VAR VEHICLE_SALES = SUMX(FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                dms_life_cycle_kpi_resource_v[dealer_id] = RELATED(v_cc_dim_dealer[dealer_id]) && ",
+              "                                dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd])), ",
+              "                        IF([kpi_code] = \"BI_OP_RS_02\", [kpi_code_amt_mtd], 0))",
+              "",
+              "VAR USED_VEHICLE_SALES = SUMX(FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                dms_life_cycle_kpi_resource_v[dealer_id] = RELATED(v_cc_dim_dealer[dealer_id]) && ",
+              "                                dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd])), ",
+              "                        IF([kpi_code] = \"BI_OP_RS_04\", [kpi_code_amt_mtd], 0))",
+              "",
+              "VAR SERVICE_SALES = SUMX(FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                dms_life_cycle_kpi_resource_v[dealer_id] = RELATED(v_cc_dim_dealer[dealer_id]) && ",
+              "                                dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd])), ",
+              "                        IF([kpi_code] = \"BI_OP_RS_03\", [kpi_code_amt_mtd], 0))",
+              "",
+              "VAR SALES = (VEHICLE_SALES + USED_VEHICLE_SALES + SERVICE_SALES) / 1000000",
+              "",
+              "RETURN IF(SALES <> 0, OP/SALES*100, 0)"
+            ],
+            "lineageTag": "57d340a1-c1e0-4336-a042-1bbee0132a1f"
+          },
+          {
+            "name": "@_CC_OP_Target",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_OP",
+            "expression": [
+              "SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_OP_TG_01\", [kpi_code_amt_mtd], 0)) ",
+              "",
+              ""
+            ],
+            "lineageTag": "0538ddef-9b24-421b-a293-b0189eb48772"
+          },
+          {
+            "name": "@_CC_OP_TARGET_RATE",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_OP",
+            "expression": [
+              "",
+              "",
+              "VAR OP_TARGET = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_OP_TG_01\", [kpi_code_amt_mtd], 0)) ",
+              "VAR VEHICLE_SALES_TARGET = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_OP_TG_02\", [kpi_code_amt_mtd], 0))",
+              "VAR USED_VEHICLE_SALES_TARGET = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_OP_TG_03\", [kpi_code_amt_mtd], 0))",
+              "VAR SERVICE_SALES_TARGET = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_OP_TG_04\", [kpi_code_amt_mtd], 0))",
+              "",
+              "VAR TOTAL_SALES_TARGET = VEHICLE_SALES_TARGET + USED_VEHICLE_SALES_TARGET + SERVICE_SALES_TARGET",
+              "",
+              "RETURN IF(TOTAL_SALES_TARGET <> 0, OP_TARGET/TOTAL_SALES_TARGET*100, 0)"
+            ],
+            "lineageTag": "3c5ca59b-c14d-4f80-8ae7-f124eb9cdbfa"
+          },
+          {
+            "name": "@_CC_OTHER_OP",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_OTHER_OP",
+            "expression": [
+              "",
+              "",
+              "VAR INCOME = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_OTH_OP_RS_01\", [kpi_code_amt_mtd] / 1000000, 0))",
+              "VAR LOSS = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_OTH_OP_RS_02\", [kpi_code_amt_mtd] / 1000000, 0))",
+              "",
+              "RETURN (INCOME - LOSS)"
+            ],
+            "lineageTag": "e43409e0-6c1f-41ce-abda-6006ba406174"
+          },
+          {
+            "name": "@_CC_OTHER_OP_RATE",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_OTHER_OP",
+            "expression": [
+              "",
+              "",
+              "VAR SELECTED_BRAND = SELECTEDVALUE(dms_co_brand[dms_brand_cd])",
+              "",
+              "// 매출",
+              "VAR OP = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_OTH_OP_RS_03\", [kpi_code_amt_mtd] / 1000000, 0)) ",
+              "VAR ORDINARY_INCOME = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_OTH_OP_RS_04\", [kpi_code_amt_mtd] / 1000000, 0))",
+              "",
+              "// 분야 별 판매 매출",
+              "VAR VEHICLE_SALES = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_OTH_OP_RS_05\", [kpi_code_amt_mtd] / 1000000, 0))",
+              "VAR USED_VEHICLE_SALES = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_OTH_OP_RS_06\", [kpi_code_amt_mtd] / 1000000, 0))",
+              "VAR SERVICE_SALES = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_OTH_OP_RS_07\", [kpi_code_amt_mtd] / 1000000, 0))",
+              "",
+              "VAR SALES = (VEHICLE_SALES + USED_VEHICLE_SALES + SERVICE_SALES)",
+              "",
+              "VAR OP_RATE = IF(SALES <> 0, OP/SALES*100, 0)",
+              "VAR ORD_RATE = IF(SALES <> 0, ORDINARY_INCOME/SALES*100, 0)",
+              "",
+              "VAR OTHER_OP_RATE = IF(SELECTED_BRAND = \"L\", (ORD_RATE - OP_RATE) * 10, (ORD_RATE - OP_RATE))",
+              "",
+              "RETURN OTHER_OP_RATE"
+            ],
+            "lineageTag": "3ece091e-f0b5-4cf7-8475-cfa729978e80"
+          },
+          {
+            "name": "@_CC_Repurchase_O",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_Repurchase",
+            "expression": [
+              "",
+              "",
+              "VAR REPURCHASE_CNT = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_REP_O_RS_01\", [kpi_code_amt_mtd], 0)) ",
+              "VAR RS_CNT = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_REP_O_RS_02\", [kpi_code_amt_mtd], 0))",
+              "",
+              "RETURN IF(RS_CNT <> 0, REPURCHASE_CNT/RS_CNT*100, 0)"
+            ],
+            "lineageTag": "b2d77ddd-d92b-4ec1-b86a-3a40bccb5198"
+          },
+          {
+            "name": "@_CC_Repurchase_O_Achiev",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_Repurchase",
+            "expression": [
+              "",
+              "",
+              "VAR REPURCHASE_CNT = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_REP_O_RS_01\", [kpi_code_amt_mtd], 0)) ",
+              "VAR RS_CNT = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_REP_O_RS_02\", [kpi_code_amt_mtd], 0))",
+              "",
+              "VAR REPURCHASE_TARGET = AVERAGEX(FILTER(dms_life_cycle_kpi_resource_v, [kpi_code] = \"BI_REP_O_TG_01\"), [kpi_code_amt])",
+              "",
+              "// REPURCHASE 계산",
+              "VAR REPURCHASE = IF(RS_CNT <> 0, REPURCHASE_CNT/RS_CNT*100, 0)",
+              "",
+              "RETURN IF(REPURCHASE_TARGET <> 0, REPURCHASE/REPURCHASE_TARGET*100, 0)"
+            ],
+            "lineageTag": "a085752c-1f53-49b3-bc7c-5cb31e3393c1"
+          },
+          {
+            "name": "@_CC_Repurchase_O_DLR_Avg",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_Repurchase",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            dms_life_cycle_kpi_resource_v[dealer_id] <> \"TOTAL\")",
+              "// 딜러 전체",
+              "VAR REPURCHASE_CNT = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_REP_O_RS_01\", [kpi_code_amt_mtd], 0))",
+              "VAR RS_CNT = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_REP_O_RS_02\", [kpi_code_amt_mtd], 0))",
+              "",
+              "RETURN IF(RS_CNT <> 0, REPURCHASE_CNT/RS_CNT*100, 0)"
+            ],
+            "lineageTag": "1b007b20-a113-45c6-a00e-d5b2fca9e898"
+          },
+          {
+            "name": "@_CC_Repurchase_O_VSLY",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_Repurchase",
+            "expression": [
+              "",
+              "",
+              "VAR LY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]) - 1, STRING)   // 전 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "",
+              "VAR SELECTED_DEALER = SELECTEDVALUE(v_cc_dim_dealer[dealer_id], \"TOTAL\") // 선택된 딜러",
+              "",
+              "// 전 년 수치",
+              "VAR REPURCHASE_CNT_LY = SUMX(FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = LY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                        dms_life_cycle_kpi_resource_v[dealer_id] = RELATED(v_cc_dim_dealer[dealer_id]) && dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd])),   ",
+              "                        IF([kpi_code] = \"BI_REP_O_RS_01\", [kpi_code_amt_mtd], 0))",
+              "",
+              "VAR RS_CNT_LY = SUMX(FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = LY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                        dms_life_cycle_kpi_resource_v[dealer_id] = RELATED(v_cc_dim_dealer[dealer_id]) && dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd])),   ",
+              "                        IF([kpi_code] = \"BI_REP_O_RS_02\", [kpi_code_amt_mtd], 0))",
+              "",
+              "// 당 년 수치",
+              "VAR REPURCHASE_CNT = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_REP_O_RS_01\", [kpi_code_amt_mtd], 0)) ",
+              "VAR RS_CNT = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_REP_O_RS_02\", [kpi_code_amt_mtd], 0))",
+              "",
+              "// 재구매율 계산",
+              "VAR REPURCHASE_RESULT_LY = IF(RS_CNT_LY <> 0, REPURCHASE_CNT_LY/RS_CNT_LY*100, 0)",
+              "VAR REPURCHASE_RESULT = IF(RS_CNT <> 0, REPURCHASE_CNT/RS_CNT*100, 0)",
+              "",
+              "RETURN IF(REPURCHASE_RESULT_LY <> 0, REPURCHASE_RESULT/REPURCHASE_RESULT_LY*100, 0)"
+            ],
+            "lineageTag": "cefdabcf-7030-45b6-a391-4bedf01b8484"
+          },
+          {
+            "name": "@_CC_Repurchase_Sales_Unit_Total_VSLY",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_Repurchase",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR YYYY_LY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]) - 1, STRING)   // 전 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "VAR SELECTED_DEALER = SELECTEDVALUE(v_cc_dim_dealer[dealer_id], \"TOTAL\") // 선택된 딜러",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            IF(SELECTED_DEALER <> \"TOTAL\", dms_life_cycle_kpi_resource_v[dealer_id] = SELECTEDVALUE(v_cc_dim_dealer[dealer_id]), 1=1) &&",
+              "                                            dms_life_cycle_kpi_resource_v[dealer_id] <> \"TOTAL\")",
+              "",
+              "VAR REPURCHASE_CNT = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY), IF([kpi_code] = \"BI_REP_RS_01\", [kpi_code_amt_mtd], 0)) ",
+              "VAR REPURCHASE_CNT_LY = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY_LY), IF([kpi_code] = \"BI_REP_RS_01\", [kpi_code_amt_mtd], 0)) ",
+              "",
+              "RETURN IF(REPURCHASE_CNT_LY <> 0, ROUNDDOWN(REPURCHASE_CNT / REPURCHASE_CNT_LY * 100, 2), 0)"
+            ],
+            "lineageTag": "86111346-ed48-4151-8051-e5ece02212bb"
+          },
+          {
+            "name": "@_CC_Repurchase_Total",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_Repurchase",
+            "expression": [
+              "",
+              "",
+              "VAR REPURCHASE_CNT = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_REP_RS_01\", [kpi_code_amt_mtd], 0)) ",
+              "VAR RS_CNT = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_REP_RS_02\", [kpi_code_amt_mtd], 0))",
+              "",
+              "RETURN IF(RS_CNT <> 0, REPURCHASE_CNT/RS_CNT*100, 0)"
+            ],
+            "lineageTag": "05969759-9d3d-4d99-8c8b-e0fb1a4d6281"
+          },
+          {
+            "name": "@_CC_Sales",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_Sales",
+            "expression": "SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_SALES_RS_01\", ROUND([kpi_code_amt_mtd] / 1000000, 0), 0))",
+            "lineageTag": "2c1a1d1c-2ce5-4599-8aa0-642be57d98bb"
+          },
+          {
+            "name": "@_CC_Sales_Achiev",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_Sales",
+            "expression": [
+              "",
+              "",
+              "VAR Sales_Result = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_SALES_RS_01\", ROUND([kpi_code_amt_mtd] / 1000000, 0), 0)) // Sales 결과 값 ",
+              "VAR Sales_Target = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_SALES_TG_01\", [kpi_code_amt_mtd], 0)) // Sales 목표 값 ",
+              "",
+              "RETURN IF(Sales_Target <> 0, Sales_Result/Sales_Target*100, 0)"
+            ],
+            "lineageTag": "9ebf41b2-58d8-48d6-aef0-547546391a6e"
+          },
+          {
+            "name": "@_CC_Sales_Achiev_DLR_Avg",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_Sales",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            dms_life_cycle_kpi_resource_v[dealer_id] <> \"TOTAL\")",
+              "",
+              "VAR Sales_Result = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_SALES_RS_01\", ROUND([kpi_code_amt_mtd] / 1000000, 0), 0)) // Sales 결과 값 ",
+              "VAR Sales_Target = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_SALES_TG_01\", [kpi_code_amt_mtd], 0)) // Sales 목표 값 ",
+              "",
+              "RETURN IF(Sales_Target <> 0, Sales_Result/Sales_Target*100, 0)"
+            ],
+            "lineageTag": "fd8e46e0-5a1f-42fe-a954-10df99a229ae"
+          },
+          {
+            "name": "@_CC_Sales_Target",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_Sales",
+            "expression": "SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_SALES_TG_01\", [kpi_code_amt_mtd], 0))",
+            "lineageTag": "9236a68b-a1fe-4fd9-bd59-3eb20ce58b86"
+          },
+          {
+            "name": "@_CC_Sales_Unit_Achiev",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_Sales_Unit",
+            "expression": [
+              "",
+              "",
+              "VAR Sales_Result = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_SALES_UNIT_RS_01\", [kpi_code_amt_mtd], 0)) // Sales 결과 값 ",
+              "VAR Sales_Target = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_SALES_UNIT_TG_01\", [kpi_code_amt_mtd], 0)) // Sales 목표 값 ",
+              "",
+              "RETURN IF(Sales_Target <> 0, Sales_Result/Sales_Target*100, 0)"
+            ],
+            "lineageTag": "b27c51c0-e69a-4d13-97ba-eaa7e7bd182d"
+          },
+          {
+            "name": "@_CC_Sales_Unit",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_Sales_Unit",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "VAR SELECTED_DEALER = IF(SELECTEDVALUE(v_cc_dim_dealer[dealer_id]) <> BLANK(), SELECTEDVALUE(v_cc_dim_dealer[dealer_id]), \"TOTAL\")",
+              "",
+              "VAR CNT = SUMX(FILTER(ALL(dms_life_cycle_kpi_resource_v), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM &&",
+              "                                                    IF(SELECTED_DEALER <> \"TOTAL\", dms_life_cycle_kpi_resource_v[dealer_id] = SELECTED_DEALER, 1=1) &&",
+              "                                                    dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                                    dms_life_cycle_kpi_resource_v[dealer_id] <> \"TOTAL\"), ",
+              "                    IF([kpi_code] = \"BI_SALES_UNIT_RS_01\", [kpi_code_amt_mtd], 0))",
+              "",
+              "RETURN CNT",
+              ""
+            ],
+            "lineageTag": "c4d705eb-73b0-46df-a02b-63b6aa2c8a26"
+          },
+          {
+            "name": "@_CC_Sales_Unit_DLR_Avg",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_Sales_Unit",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 전 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "",
+              "// 딜러 전체",
+              "VAR RESULT = SUMX(FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                dms_life_cycle_kpi_resource_v[dealer_id] = RELATED(v_cc_dim_dealer[dealer_id]) && RELATED(dms_co_brand[dms_brand_cd]) = \"L\"), ",
+              "                        IF([kpi_code] = \"BI_SALES_UNIT_RS_01\", [kpi_code_amt_mtd], 0))",
+              "",
+              "VAR TARGET = SUMX(FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                dms_life_cycle_kpi_resource_v[dealer_id] = RELATED(v_cc_dim_dealer[dealer_id]) && RELATED(dms_co_brand[dms_brand_cd]) = \"L\"), ",
+              "                        IF([kpi_code] = \"BI_SALES_UNIT_TG_01\", [kpi_code_amt_mtd], 0))",
+              "",
+              "RETURN IF(TARGET <> 0, RESULT / TARGET * 100, 0)"
+            ],
+            "lineageTag": "f9c4932f-c08b-48de-a1a9-aaea32077c87"
+          },
+          {
+            "name": "@_CC_Sales_Unit_Result_LY",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_Sales_Unit",
+            "expression": [
+              "",
+              "",
+              "VAR LY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]) - 1, STRING)   // 전 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "",
+              "// 전 년 수치",
+              "VAR Sales_Result_LY = SUMX(FILTER(ALL(dms_life_cycle_kpi_resource_v), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = LY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && dms_life_cycle_kpi_resource_v[dealer_id] = RELATED(v_cc_dim_dealer[dealer_id])),",
+              "                    IF([kpi_code] = \"BI_SALES_UNIT_RS_01\", [kpi_code_amt_mtd], 0))",
+              "",
+              "RETURN IF(ISBLANK(Sales_Result_LY), 0, Sales_Result_LY)"
+            ],
+            "lineageTag": "c6e2fbfc-8a4a-45a0-9c04-230eddc01920"
+          },
+          {
+            "name": "@_CC_Sales_Unit_Target",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_Sales_Unit",
+            "expression": "SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_SALES_UNIT_TG_01\", [kpi_code_amt_mtd], 0))",
+            "lineageTag": "7f885ead-cd77-4ede-99d6-ef79c90e43b5"
+          },
+          {
+            "name": "@_CC_SERVICE_ABSORPTION_DLR_Avg",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_SVC_GP",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            dms_life_cycle_kpi_resource_v[dealer_id] <> \"TOTAL\")",
+              "",
+              "// 서비스 비용, 운영비, 서비스 매출",
+              "VAR SERVICE_PART_COST = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_SVC_ABS_RS_01\", [kpi_code_amt_mtd], 0))",
+              "VAR SERVICE_PERSONNEL_COST = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_SVC_ABS_RS_02\", [kpi_code_amt_mtd], 0))",
+              "VAR SERVICE_OTHER_COST = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_SVC_ABS_RS_03\", [kpi_code_amt_mtd], 0))",
+              "VAR SERVICE_COST = SERVICE_PART_COST + SERVICE_PERSONNEL_COST + SERVICE_OTHER_COST",
+              "VAR GENERAL_EXPENSE = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_SVC_ABS_RS_04\", [kpi_code_amt_mtd], 0))",
+              "VAR SERVICE_SALES = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_SVC_ABS_RS_05\", [kpi_code_amt_mtd], 0))",
+              "",
+              "VAR ABSORPTION_RATE = IF((SERVICE_OTHER_COST + GENERAL_EXPENSE) <> 0, (SERVICE_SALES - SERVICE_PART_COST - SERVICE_PERSONNEL_COST) / (SERVICE_OTHER_COST + GENERAL_EXPENSE) * 100, 0)",
+              "",
+              "RETURN ABSORPTION_RATE"
+            ],
+            "lineageTag": "f9eb7667-5f3f-47ae-8239-89a81f77f58e"
+          },
+          {
+            "name": "@_CC_SERVICE_ABSORPTION_RATE",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_SVC_GP",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "",
+              "VAR SELECTED_DEALER = SELECTEDVALUE(v_cc_dim_dealer[dealer_id], \"TOTAL\") // 선택된 딜러",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            IF(SELECTED_DEALER <> \"TOTAL\", dms_life_cycle_kpi_resource_v[dealer_id] = SELECTEDVALUE(v_cc_dim_dealer[dealer_id]), ",
+              "                                                                            dms_life_cycle_kpi_resource_v[dealer_id] <> \"TOTAL\"))",
+              "",
+              "// 서비스 비용, 운영비, 서비스 매출",
+              "VAR SERVICE_PART_COST = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_SVC_ABS_RS_01\", [kpi_code_amt_mtd], 0))",
+              "VAR SERVICE_PERSONNEL_COST = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_SVC_ABS_RS_02\", [kpi_code_amt_mtd], 0))",
+              "VAR SERVICE_OTHER_COST = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_SVC_ABS_RS_03\", [kpi_code_amt_mtd], 0))",
+              "VAR SERVICE_COST = SERVICE_PART_COST + SERVICE_PERSONNEL_COST + SERVICE_OTHER_COST",
+              "VAR GENERAL_EXPENSE = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_SVC_ABS_RS_04\", [kpi_code_amt_mtd], 0))",
+              "VAR SERVICE_SALES = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_SVC_ABS_RS_05\", [kpi_code_amt_mtd], 0))",
+              "",
+              "VAR ABSORPTION_RATE = IF((SERVICE_OTHER_COST + GENERAL_EXPENSE) <> 0, (SERVICE_SALES - SERVICE_PART_COST - SERVICE_PERSONNEL_COST) / (SERVICE_OTHER_COST + GENERAL_EXPENSE) * 100, 0)",
+              "",
+              "RETURN ABSORPTION_RATE"
+            ],
+            "lineageTag": "f1ce8c5c-1ab0-4f28-96b1-2150b50458cd"
+          },
+          {
+            "name": "@_CC_SERVICE_ABSORPTION_TARGET_RATE",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_SVC_GP",
+            "expression": [
+              "",
+              "",
+              "VAR TARGET_RATE = AVERAGEX(FILTER(dms_life_cycle_kpi_resource_v, dms_life_cycle_kpi_resource_v[kpi_code] = \"BI_SVC_ABS_TG_01\" && dms_life_cycle_kpi_resource_v[dealer_id] <> \"TOTAL\"), dms_life_cycle_kpi_resource_v[kpi_code_amt])",
+              "",
+              "RETURN IF(ISBLANK(TARGET_RATE), 0, TARGET_RATE)"
+            ],
+            "lineageTag": "fad9c042-6c81-4d47-9c3f-f6632a36afa6"
+          },
+          {
+            "name": "@_CC_SVC_GP",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_SVC_GP",
+            "expression": [
+              "",
+              "",
+              "VAR VEHICLE_SVC_GP_TABLE =   ADDCOLUMNS(",
+              "                                NATURALLEFTOUTERJOIN(",
+              "                                    SELECTCOLUMNS(",
+              "                                        FILTER(dms_life_cycle_kpi_resource_v, dms_life_cycle_kpi_resource_v[kpi_code_type] = \"DMS_BI_VC002\" && dms_life_cycle_kpi_resource_v[kpi_code] = \"BI_SVC_OP_RS_03\"),",
+              "                                        \"SERVICE_SALES\", dms_life_cycle_kpi_resource_v[kpi_code_amt_mtd],",
+              "                                        \"DEALER_ID\", dms_life_cycle_kpi_resource_v[dealer_id],",
+              "                                        \"YYYYMM\", dms_life_cycle_kpi_resource_v[yyyymm]",
+              "                                    ),",
+              "                                    SELECTCOLUMNS(",
+              "                                        FILTER(dms_life_cycle_kpi_resource_v, dms_life_cycle_kpi_resource_v[kpi_code_type] = \"DMS_BI_VC002\" && dms_life_cycle_kpi_resource_v[kpi_code] = \"BI_SVC_OP_RS_06\"),",
+              "                                        \"SERVICE_COST\", dms_life_cycle_kpi_resource_v[kpi_code_amt_mtd],",
+              "                                        \"DEALER_ID\", dms_life_cycle_kpi_resource_v[dealer_id],",
+              "                                        \"YYYYMM\", dms_life_cycle_kpi_resource_v[yyyymm]",
+              "                                    )",
+              "                                ),",
+              "                                \"SERVICE_GP\",",
+              "                                [SERVICE_SALES] - [SERVICE_COST]",
+              "                            )",
+              "",
+              "VAR SERVICE_GP = SUMX(VEHICLE_SVC_GP_TABLE, ROUND([SERVICE_GP] / 1000000, 0))",
+              "",
+              "RETURN SERVICE_GP"
+            ],
+            "lineageTag": "7b2e22f0-2f82-4f45-870a-a41b6d39a0f9"
+          },
+          {
+            "name": "@_CC_SVC_GP_RATE",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_SVC_GP",
+            "expression": [
+              "",
+              "",
+              "// 서비스 판매 매출",
+              "VAR SERVICE_SALES = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_SVC_OP_RS_03\", [kpi_code_amt_mtd] / 1000000, 0))",
+              "",
+              "RETURN IF(SERVICE_SALES <> 0, ROUND([@_CC_SVC_GP] / SERVICE_SALES * 100, 1), 0)"
+            ],
+            "lineageTag": "fb9a6917-efd7-4f42-ad4e-b2d9e0862032"
+          },
+          {
+            "name": "@_CC_SVC_GP_RATE_DLR_Avg",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_SVC_GP",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 당 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            dms_life_cycle_kpi_resource_v[dealer_id] <> \"TOTAL\")",
+              "",
+              "VAR SERVICE_SALES = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_SVC_OP_RS_03\", [kpi_code_amt_mtd] / 1000000, 0))",
+              "VAR SERVICE_COST = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_SVC_OP_RS_06\", [kpi_code_amt_mtd] / 1000000, 0))",
+              "",
+              "VAR SVC_GP_TOTAL = SERVICE_SALES - SERVICE_COST",
+              "",
+              "RETURN IF(SERVICE_SALES <> 0, ROUND((SERVICE_SALES - SERVICE_COST) / SERVICE_SALES * 100, 1), 0)",
+              ""
+            ],
+            "lineageTag": "f5a914fa-719b-41a2-afa0-2cd28fcd4bfb"
+          },
+          {
+            "name": "@_CC_SVC_GP_TARGET",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_SVC_GP",
+            "expression": [
+              "",
+              "",
+              "VAR SERVICE_GP_TARGET = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_SVC_OP_TG_01\", [kpi_code_amt_mtd], 0))",
+              "",
+              "RETURN SERVICE_GP_TARGET"
+            ],
+            "lineageTag": "177f98b7-148a-49b4-86b8-93c6f2125a7d"
+          },
+          {
+            "name": "@_CC_SVC_GP_TARGET_RATE",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_SVC_GP",
+            "expression": [
+              "",
+              "",
+              "VAR SERVICE_GP_TARGET = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_SVC_OP_TG_01\", [kpi_code_amt_mtd], 0))",
+              "",
+              "VAR SERVICE_SALES_TARGET = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_SVC_OP_TG_02\", [kpi_code_amt_mtd], 0))",
+              "",
+              "RETURN IF(SERVICE_SALES_TARGET <> 0, SERVICE_GP_TARGET / SERVICE_SALES_TARGET * 100, 0)"
+            ],
+            "lineageTag": "d3774c70-0871-453c-8291-1c551c52cfc4"
+          },
+          {
+            "name": "@_TMP_CC_SVC_GP_RATE_DLR_Avg",
+            "displayFolder": "@_CC_SVC_GP",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "",
+              "VAR KPI_RESOURCE_ALL_DLR = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && RELATED(dms_co_brand[dms_brand_cd]) = \"L\")",
+              "",
+              "// 분야 별 판매 매출",
+              "VAR VEHICLE_SALES = SUMX(KPI_RESOURCE_ALL_DLR, IF([kpi_code] = \"BI_SVC_OP_RS_01\", [kpi_code_amt_mtd], 0))",
+              "VAR USED_VEHICLE_SALES = SUMX(KPI_RESOURCE_ALL_DLR, IF([kpi_code] = \"BI_SVC_OP_RS_02\", [kpi_code_amt_mtd], 0))",
+              "VAR SERVICE_SALES = SUMX(KPI_RESOURCE_ALL_DLR, IF([kpi_code] = \"BI_SVC_OP_RS_03\", [kpi_code_amt_mtd], 0))",
+              "",
+              "VAR VEHICLE_SVC_SALES_TABLE =   ADDCOLUMNS(",
+              "                                    NATURALLEFTOUTERJOIN(",
+              "                                        NATURALLEFTOUTERJOIN(",
+              "                                            SELECTCOLUMNS(",
+              "                                                FILTER(KPI_RESOURCE_ALL_DLR, [kpi_code_type] = \"DMS_BI_VC002\" && [kpi_code] = \"BI_SVC_OP_RS_01\"),",
+              "                                                \"VEHICLE_SALES_MTD\", ROUND([kpi_code_amt_mtd], 0),",
+              "                                                \"DEALER_ID\", [dealer_id],",
+              "                                                \"YYYYMM\", [yyyymm]",
+              "                                            ),",
+              "                                            SELECTCOLUMNS(",
+              "                                                FILTER(KPI_RESOURCE_ALL_DLR, [kpi_code_type] = \"DMS_BI_VC002\" && [kpi_code] = \"BI_SVC_OP_RS_02\"),",
+              "                                                \"USED_VEHICLE_SALES_MTD\", ROUND([kpi_code_amt_mtd], 0),",
+              "                                                \"DEALER_ID\", [dealer_id],",
+              "                                                \"YYYYMM\", [yyyymm]",
+              "                                            )",
+              "                                        ),",
+              "                                        SELECTCOLUMNS(",
+              "                                            FILTER(KPI_RESOURCE_ALL_DLR, [kpi_code_type] = \"DMS_BI_VC002\" && [kpi_code] = \"BI_SVC_OP_RS_03\"),",
+              "                                            \"SERVICE_SALES_MTD\", ROUND([kpi_code_amt_mtd], 0),",
+              "                                            \"DEALER_ID\", [dealer_id],",
+              "                                            \"YYYYMM\", [yyyymm]",
+              "                                        )",
+              "                                    ),",
+              "                                    \"VEHICLE_SVC_SALES_MTD\",",
+              "                                    [VEHICLE_SALES_MTD] + [USED_VEHICLE_SALES_MTD] + [SERVICE_SALES_MTD]",
+              "                                )",
+              "",
+              "// 분야 별 판매 비용",
+              "VAR VEHICLE_COST = SUMX(KPI_RESOURCE_ALL_DLR, IF([kpi_code] = \"BI_SVC_OP_RS_04\", [kpi_code_amt_mtd], 0))",
+              "VAR USED_VEHICLE_COST = SUMX(KPI_RESOURCE_ALL_DLR, IF([kpi_code] = \"BI_SVC_OP_RS_05\", [kpi_code_amt_mtd], 0))",
+              "VAR SERVICE_COST = SUMX(KPI_RESOURCE_ALL_DLR, IF([kpi_code] = \"BI_SVC_OP_RS_06\", [kpi_code_amt_mtd], 0))",
+              "",
+              "",
+              "// 딜러 별 인원 비율 산출",
+              "VAR PERSON_RATE_TABLE = ADDCOLUMNS(",
+              "                            NATURALLEFTOUTERJOIN(",
+              "                                NATURALLEFTOUTERJOIN(",
+              "                                    NATURALLEFTOUTERJOIN(",
+              "                                        NATURALLEFTOUTERJOIN(",
+              "                                            SELECTCOLUMNS(",
+              "                                                FILTER(KPI_RESOURCE_ALL_DLR, [kpi_code_type] = \"DMS_BI_VC002\" && [kpi_code] = \"BI_SVC_OP_RS_07\"),",
+              "                                                \"EMP_TOPMANAGE_MTD\", [kpi_code_amt_mtd] / MM,",
+              "                                                \"DEALER_ID\", [dealer_id],",
+              "                                                \"YYYYMM\", [yyyymm]",
+              "                                            ),",
+              "                                            SELECTCOLUMNS(",
+              "                                                FILTER(KPI_RESOURCE_ALL_DLR, [kpi_code_type] = \"DMS_BI_VC002\" && [kpi_code] = \"BI_SVC_OP_RS_08\"),",
+              "                                                \"EMP_ADMIN_MTD\", [kpi_code_amt_mtd] / MM,",
+              "                                                \"DEALER_ID\", [dealer_id],",
+              "                                                \"YYYYMM\", [yyyymm]",
+              "                                            )",
+              "                                        ),",
+              "                                        SELECTCOLUMNS(",
+              "                                            FILTER(KPI_RESOURCE_ALL_DLR, [kpi_code_type] = \"DMS_BI_VC002\" && [kpi_code] = \"BI_SVC_OP_RS_09\"),",
+              "                                            \"EMP_TOTAL_MTD\", [kpi_code_amt_mtd] / MM,",
+              "                                            \"DEALER_ID\", [dealer_id],",
+              "                                            \"YYYYMM\", [yyyymm]",
+              "                                        )",
+              "                                    ),",
+              "                                    SELECTCOLUMNS(",
+              "                                        FILTER(KPI_RESOURCE_ALL_DLR, [kpi_code_type] = \"DMS_BI_VC002\" && [kpi_code] = \"BI_SVC_OP_RS_10\"),",
+              "                                        \"EMP_SERVICE_MTD\", [kpi_code_amt_mtd] / MM,",
+              "                                        \"DEALER_ID\", [dealer_id],",
+              "                                        \"YYYYMM\", [yyyymm]",
+              "                                    )",
+              "                                ),",
+              "                                SELECTCOLUMNS(",
+              "                                    FILTER(KPI_RESOURCE_ALL_DLR, [kpi_code_type] = \"DMS_BI_VC002\" && [kpi_code] = \"BI_SVC_OP_RS_11\" ",
+              "                                            && [dealer_id] <> \"DT00000\" && [dealer_id] <> \"JB00000\"),",
+              "                                    \"GENERAL_EXPENSE\", [kpi_code_amt_mtd],",
+              "                                    \"DEALER_ID\", [dealer_id],",
+              "                                    \"YYYYMM\", [yyyymm]",
+              "                                )",
+              "                            ),",
+              "                            \"PERSON_RATE\", ([EMP_TOPMANAGE_MTD] + [EMP_ADMIN_MTD]) / ([EMP_TOTAL_MTD] - [EMP_SERVICE_MTD]),",
+              "                            \"COMMON_FEE\", ROUND((([EMP_TOPMANAGE_MTD] + [EMP_ADMIN_MTD]) / ([EMP_TOTAL_MTD] - [EMP_SERVICE_MTD])) * [GENERAL_EXPENSE] / 1000000, 0)",
+              "                        )                                   ",
+              "",
+              "// 분야 별 판매 순수익 산출",
+              "VAR SERVICE_PROFIT_TABLE = ADDCOLUMNS(",
+              "                            NATURALINNERJOIN(",
+              "                                SELECTCOLUMNS(",
+              "                                    FILTER(KPI_RESOURCE_ALL_DLR, [kpi_code_type] = \"DMS_BI_VC002\" && [kpi_code] = \"BI_SVC_OP_RS_03\"),",
+              "                                    \"SERVICE_SALES\", [kpi_code_amt_mtd],",
+              "                                    \"DEALER_ID\", [dealer_id],",
+              "                                    \"YYYYMM\", [yyyymm]",
+              "                                ),",
+              "                                SELECTCOLUMNS(",
+              "                                    FILTER(KPI_RESOURCE_ALL_DLR, [kpi_code_type] = \"DMS_BI_VC002\" && [kpi_code] = \"BI_SVC_OP_RS_06\"),",
+              "                                    \"SERVICE_COST\", [kpi_code_amt_mtd],",
+              "                                    \"DEALER_ID\", [dealer_id],",
+              "                                    \"YYYYMM\", [yyyymm]",
+              "                                )",
+              "                            ),",
+              "                            \"SERVICE_PROFIT\",",
+              "                            ROUND(([SERVICE_SALES] - [SERVICE_COST]), 0)",
+              "                        ) ",
+              "",
+              "",
+              "// SERVICE OP 계산",
+              "VAR SVC_OP_TABLE = ADDCOLUMNS(",
+              "                            NATURALLEFTOUTERJOIN(",
+              "                                NATURALLEFTOUTERJOIN(",
+              "                                    NATURALLEFTOUTERJOIN(",
+              "                                        SELECTCOLUMNS(",
+              "                                            VEHICLE_SVC_SALES_TABLE,",
+              "                                            \"VEHICLE_SVC_SALES_MTD\", [VEHICLE_SVC_SALES_MTD],",
+              "                                            \"SERVICE_SALES_MTD\", [SERVICE_SALES_MTD],",
+              "                                            \"DEALER_ID\", [dealer_id],",
+              "                                            \"YYYYMM\", [yyyymm]",
+              "                                        ),",
+              "                                        SELECTCOLUMNS(",
+              "                                            PERSON_RATE_TABLE,",
+              "                                            \"COMMON_FEE\", [COMMON_FEE],",
+              "                                            \"DEALER_ID\", [dealer_id],",
+              "                                            \"YYYYMM\", [yyyymm]",
+              "                                        )",
+              "                                    ),",
+              "                                    SELECTCOLUMNS(",
+              "                                        SERVICE_PROFIT_TABLE,",
+              "                                        \"SERVICE_PROFIT\", [SERVICE_PROFIT],",
+              "                                        \"DEALER_ID\", [dealer_id],",
+              "                                        \"YYYYMM\", [yyyymm]",
+              "                                    )",
+              "                                ),",
+              "                                SELECTCOLUMNS(",
+              "                                    FILTER(KPI_RESOURCE_ALL_DLR, [kpi_code_type] = \"DMS_BI_VC002\" && [kpi_code] = \"BI_SVC_OP_RS_12\"),",
+              "                                    \"OP_INCOME_MTD\", [kpi_code_amt_mtd],",
+              "                                    \"DEALER_ID\", [dealer_id],",
+              "                                    \"YYYYMM\", [yyyymm]",
+              "                                )",
+              "                            ),",
+              "                            \"SERVICE_OP\", [SERVICE_PROFIT] - IF([VEHICLE_SVC_SALES_MTD] = 0, 0, [COMMON_FEE] * [SERVICE_SALES_MTD] / [VEHICLE_SVC_SALES_MTD])",
+              "                        )    ",
+              "",
+              "// SVC OP 계산",
+              "VAR SVC_OP_MTD = SUMX(SVC_OP_TABLE, [SERVICE_OP])   // SVC OP",
+              "VAR SVC_OP_RATE = IF(SERVICE_SALES <> 0, ROUND(SVC_OP_MTD / SERVICE_SALES * 100, 1), 0)",
+              "",
+              "RETURN SVC_OP_RATE"
+            ],
+            "lineageTag": "1f791f37-2d10-4b2c-af49-20d4300afd07"
+          },
+          {
+            "name": "@_TMP_CC_SVC_GP2",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "description": "@_CC_SVC_GP",
+            "displayFolder": "@_CC_SVC_GP",
+            "expression": [
+              "",
+              "",
+              "VAR MM = SELECTEDVALUE('dms_co_calendar_month_v'[month])",
+              "",
+              "",
+              "// 분야 별 판매 매출",
+              "VAR VEHICLE_SALES = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_SVC_OP_RS_01\", [kpi_code_amt_mtd], 0))",
+              "VAR USED_VEHICLE_SALES = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_SVC_OP_RS_02\", [kpi_code_amt_mtd], 0))",
+              "VAR SERVICE_SALES = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_SVC_OP_RS_03\", [kpi_code_amt_mtd], 0))",
+              "",
+              "VAR VEHICLE_SVC_SALES_TABLE =   ADDCOLUMNS(",
+              "                                    NATURALLEFTOUTERJOIN(",
+              "                                        NATURALLEFTOUTERJOIN(",
+              "                                            SELECTCOLUMNS(",
+              "                                                FILTER(dms_life_cycle_kpi_resource_v, dms_life_cycle_kpi_resource_v[kpi_code_type] = \"DMS_BI_VC002\" && dms_life_cycle_kpi_resource_v[kpi_code] = \"BI_SVC_OP_RS_01\"),",
+              "                                                \"VEHICLE_SALES_MTD\", ROUND(dms_life_cycle_kpi_resource_v[kpi_code_amt_mtd] / 1000000, 0),",
+              "                                                \"DEALER_ID\", dms_life_cycle_kpi_resource_v[dealer_id],",
+              "                                                \"YYYYMM\", dms_life_cycle_kpi_resource_v[yyyymm]",
+              "                                            ),",
+              "                                            SELECTCOLUMNS(",
+              "                                                FILTER(dms_life_cycle_kpi_resource_v, dms_life_cycle_kpi_resource_v[kpi_code_type] = \"DMS_BI_VC002\" && dms_life_cycle_kpi_resource_v[kpi_code] = \"BI_SVC_OP_RS_02\"),",
+              "                                                \"USED_VEHICLE_SALES_MTD\", ROUND(dms_life_cycle_kpi_resource_v[kpi_code_amt_mtd] / 1000000, 0),",
+              "                                                \"DEALER_ID\", dms_life_cycle_kpi_resource_v[dealer_id],",
+              "                                                \"YYYYMM\", dms_life_cycle_kpi_resource_v[yyyymm]",
+              "                                            )",
+              "                                        ),",
+              "                                        SELECTCOLUMNS(",
+              "                                            FILTER(dms_life_cycle_kpi_resource_v, dms_life_cycle_kpi_resource_v[kpi_code_type] = \"DMS_BI_VC002\" && dms_life_cycle_kpi_resource_v[kpi_code] = \"BI_SVC_OP_RS_03\"),",
+              "                                            \"SERVICE_SALES_MTD\", ROUND(dms_life_cycle_kpi_resource_v[kpi_code_amt_mtd] / 1000000, 0),",
+              "                                            \"DEALER_ID\", dms_life_cycle_kpi_resource_v[dealer_id],",
+              "                                            \"YYYYMM\", dms_life_cycle_kpi_resource_v[yyyymm]",
+              "                                        )",
+              "                                    ),",
+              "                                    \"VEHICLE_SVC_SALES_MTD\",",
+              "                                    [VEHICLE_SALES_MTD] + [USED_VEHICLE_SALES_MTD] + [SERVICE_SALES_MTD]",
+              "                                )",
+              "",
+              "// 분야 별 판매 비용",
+              "VAR VEHICLE_COST = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_SVC_OP_RS_04\", [kpi_code_amt_mtd] / 1000000, 0))",
+              "VAR USED_VEHICLE_COST = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_SVC_OP_RS_05\", [kpi_code_amt_mtd] / 1000000, 0))",
+              "VAR SERVICE_COST = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_SVC_OP_RS_06\", [kpi_code_amt_mtd] / 1000000, 0))",
+              "",
+              "",
+              "// 딜러 별 인원 비율 산출",
+              "VAR PERSON_RATE_TABLE = ADDCOLUMNS(",
+              "                            NATURALLEFTOUTERJOIN(",
+              "                                NATURALLEFTOUTERJOIN(",
+              "                                    NATURALLEFTOUTERJOIN(",
+              "                                        NATURALLEFTOUTERJOIN(",
+              "                                            SELECTCOLUMNS(",
+              "                                                FILTER(dms_life_cycle_kpi_resource_v, dms_life_cycle_kpi_resource_v[kpi_code_type] = \"DMS_BI_VC002\" && dms_life_cycle_kpi_resource_v[kpi_code] = \"BI_SVC_OP_RS_07\"),",
+              "                                                \"EMP_TOPMANAGE_MTD\", dms_life_cycle_kpi_resource_v[kpi_code_amt_mtd] / MM,",
+              "                                                \"DEALER_ID\", dms_life_cycle_kpi_resource_v[dealer_id],",
+              "                                                \"YYYYMM\", dms_life_cycle_kpi_resource_v[yyyymm]",
+              "                                            ),",
+              "                                            SELECTCOLUMNS(",
+              "                                                FILTER(dms_life_cycle_kpi_resource_v, dms_life_cycle_kpi_resource_v[kpi_code_type] = \"DMS_BI_VC002\" && dms_life_cycle_kpi_resource_v[kpi_code] = \"BI_SVC_OP_RS_08\"),",
+              "                                                \"EMP_ADMIN_MTD\", dms_life_cycle_kpi_resource_v[kpi_code_amt_mtd] / MM,",
+              "                                                \"DEALER_ID\", dms_life_cycle_kpi_resource_v[dealer_id],",
+              "                                                \"YYYYMM\", dms_life_cycle_kpi_resource_v[yyyymm]",
+              "                                            )",
+              "                                        ),",
+              "                                        SELECTCOLUMNS(",
+              "                                            FILTER(dms_life_cycle_kpi_resource_v, dms_life_cycle_kpi_resource_v[kpi_code_type] = \"DMS_BI_VC002\" && dms_life_cycle_kpi_resource_v[kpi_code] = \"BI_SVC_OP_RS_09\"),",
+              "                                            \"EMP_TOTAL_MTD\", dms_life_cycle_kpi_resource_v[kpi_code_amt_mtd] / MM,",
+              "                                            \"DEALER_ID\", dms_life_cycle_kpi_resource_v[dealer_id],",
+              "                                            \"YYYYMM\", dms_life_cycle_kpi_resource_v[yyyymm]",
+              "                                        )",
+              "                                    ),",
+              "                                    SELECTCOLUMNS(",
+              "                                        FILTER(dms_life_cycle_kpi_resource_v, dms_life_cycle_kpi_resource_v[kpi_code_type] = \"DMS_BI_VC002\" && dms_life_cycle_kpi_resource_v[kpi_code] = \"BI_SVC_OP_RS_10\"),",
+              "                                        \"EMP_SERVICE_MTD\", dms_life_cycle_kpi_resource_v[kpi_code_amt_mtd] / MM,",
+              "                                        \"DEALER_ID\", dms_life_cycle_kpi_resource_v[dealer_id],",
+              "                                        \"YYYYMM\", dms_life_cycle_kpi_resource_v[yyyymm]",
+              "                                    )",
+              "                                ),",
+              "                                SELECTCOLUMNS(",
+              "                                    FILTER(dms_life_cycle_kpi_resource_v, dms_life_cycle_kpi_resource_v[kpi_code_type] = \"DMS_BI_VC002\" && dms_life_cycle_kpi_resource_v[kpi_code] = \"BI_SVC_OP_RS_11\" ",
+              "                                            && dms_life_cycle_kpi_resource_v[dealer_id] <> \"DT00000\" && dms_life_cycle_kpi_resource_v[dealer_id] <> \"JB00000\"),",
+              "                                    \"GENERAL_EXPENSE\", dms_life_cycle_kpi_resource_v[kpi_code_amt_mtd],",
+              "                                    \"DEALER_ID\", dms_life_cycle_kpi_resource_v[dealer_id],",
+              "                                    \"YYYYMM\", dms_life_cycle_kpi_resource_v[yyyymm]",
+              "                                )",
+              "                            ),",
+              "                            \"PERSON_RATE\", IF(([EMP_TOTAL_MTD] - [EMP_SERVICE_MTD]) <> 0, ([EMP_TOPMANAGE_MTD] + [EMP_ADMIN_MTD]) / ([EMP_TOTAL_MTD] - [EMP_SERVICE_MTD]), 0),",
+              "                            \"COMMON_FEE\", IF(([EMP_TOTAL_MTD] - [EMP_SERVICE_MTD]) <> 0, ROUND((([EMP_TOPMANAGE_MTD] + [EMP_ADMIN_MTD]) / ([EMP_TOTAL_MTD] - [EMP_SERVICE_MTD])) ",
+              "                                                                                                        * [GENERAL_EXPENSE] / 1000000, 0), 0)",
+              "                        )                                   ",
+              "",
+              "// 분야 별 판매 순수익 산출",
+              "VAR SERVICE_PROFIT_TABLE = ADDCOLUMNS(",
+              "                            NATURALINNERJOIN(",
+              "                                SELECTCOLUMNS(",
+              "                                    FILTER(dms_life_cycle_kpi_resource_v, dms_life_cycle_kpi_resource_v[kpi_code_type] = \"DMS_BI_VC002\" && dms_life_cycle_kpi_resource_v[kpi_code] = \"BI_SVC_OP_RS_03\"),",
+              "                                    \"SERVICE_SALES\", dms_life_cycle_kpi_resource_v[kpi_code_amt_mtd] / 1000000,",
+              "                                    \"DEALER_ID\", dms_life_cycle_kpi_resource_v[dealer_id],",
+              "                                    \"YYYYMM\", dms_life_cycle_kpi_resource_v[yyyymm]",
+              "                                ),",
+              "                                SELECTCOLUMNS(",
+              "                                    FILTER(dms_life_cycle_kpi_resource_v, dms_life_cycle_kpi_resource_v[kpi_code_type] = \"DMS_BI_VC002\" && dms_life_cycle_kpi_resource_v[kpi_code] = \"BI_SVC_OP_RS_06\"),",
+              "                                    \"SERVICE_COST\", dms_life_cycle_kpi_resource_v[kpi_code_amt_mtd] / 1000000,",
+              "                                    \"DEALER_ID\", dms_life_cycle_kpi_resource_v[dealer_id],",
+              "                                    \"YYYYMM\", dms_life_cycle_kpi_resource_v[yyyymm]",
+              "                                )",
+              "                            ),",
+              "                            \"SERVICE_PROFIT\",",
+              "                            ROUND(([SERVICE_SALES] - [SERVICE_COST]), 0)",
+              "                        ) ",
+              "",
+              "",
+              "// SERVICE OP 계산",
+              "VAR SVC_OP_TABLE = ADDCOLUMNS(",
+              "                            NATURALLEFTOUTERJOIN(",
+              "                                NATURALLEFTOUTERJOIN(",
+              "                                    NATURALLEFTOUTERJOIN(",
+              "                                        SELECTCOLUMNS(",
+              "                                            VEHICLE_SVC_SALES_TABLE,",
+              "                                            \"VEHICLE_SVC_SALES_MTD\", [VEHICLE_SVC_SALES_MTD],",
+              "                                            \"SERVICE_SALES_MTD\", [SERVICE_SALES_MTD],",
+              "                                            \"DEALER_ID\", [dealer_id],",
+              "                                            \"YYYYMM\", [yyyymm]",
+              "                                        ),",
+              "                                        SELECTCOLUMNS(",
+              "                                            PERSON_RATE_TABLE,",
+              "                                            \"COMMON_FEE\", [COMMON_FEE],",
+              "                                            \"DEALER_ID\", [dealer_id],",
+              "                                            \"YYYYMM\", [yyyymm]",
+              "                                        )",
+              "                                    ),",
+              "                                    SELECTCOLUMNS(",
+              "                                        SERVICE_PROFIT_TABLE,",
+              "                                        \"SERVICE_PROFIT\", [SERVICE_PROFIT],",
+              "                                        \"DEALER_ID\", [dealer_id],",
+              "                                        \"YYYYMM\", [yyyymm]",
+              "                                    )",
+              "                                ),",
+              "                                SELECTCOLUMNS(",
+              "                                    FILTER(dms_life_cycle_kpi_resource_v, dms_life_cycle_kpi_resource_v[kpi_code_type] = \"DMS_BI_VC002\" && dms_life_cycle_kpi_resource_v[kpi_code] = \"BI_SVC_OP_RS_12\"),",
+              "                                    \"OP_INCOME_MTD\", dms_life_cycle_kpi_resource_v[kpi_code_amt_mtd],",
+              "                                    \"DEALER_ID\", dms_life_cycle_kpi_resource_v[dealer_id],",
+              "                                    \"YYYYMM\", dms_life_cycle_kpi_resource_v[yyyymm]",
+              "                                )",
+              "                            ),",
+              "                            \"SERVICE_OP\", [SERVICE_PROFIT] - IF([VEHICLE_SVC_SALES_MTD] = 0, 0, [COMMON_FEE] * [SERVICE_SALES_MTD] / [VEHICLE_SVC_SALES_MTD])",
+              "                        )    ",
+              "",
+              "// SVC OP 계산",
+              "VAR SVC_OP_MTD = SUMX(SVC_OP_TABLE, [SERVICE_OP])",
+              "",
+              "RETURN SVC_OP_MTD"
+            ],
+            "lineageTag": "1e7bc141-e092-4ef3-845e-f11fc88dfe63"
+          },
+          {
+            "name": "@_CC_TCM_Sales",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_TCM_SALES",
+            "expression": "SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_TCM_UNIT_RS_01\", [kpi_code_amt_mtd], 0))",
+            "lineageTag": "576e70be-69d4-4ec9-9022-dbae97d320dd"
+          },
+          {
+            "name": "@_CC_TCM_Sales_Achiev",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_TCM_SALES",
+            "expression": [
+              "",
+              "",
+              "VAR SALES_CNT = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_TCM_UNIT_RS_01\", [kpi_code_amt_mtd], 0))",
+              "VAR SALES_TARGET = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_TCM_UNIT_TG_01\", [kpi_code_amt_mtd], 0))",
+              "",
+              "RETURN IF(SALES_TARGET <> 0, ROUND(SALES_CNT / SALES_TARGET * 100, 0), 0)"
+            ],
+            "lineageTag": "3d69ad04-6fdd-45f9-a98f-0932ae571140"
+          },
+          {
+            "name": "@_CC_TCM_Sales_Target",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_TCM_SALES",
+            "expression": "SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_TCM_UNIT_TG_01\", [kpi_code_amt_mtd], 0))",
+            "lineageTag": "dee2284f-dd1f-4a36-806a-196e754e25c0"
+          },
+          {
+            "name": "@_CC_UIO8",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_UIO",
+            "expression": "SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_UIO8_RS_01\", [kpi_code_amt_mtd], 0))",
+            "lineageTag": "e8116478-aabb-4212-a1b5-997221a97cf9"
+          },
+          {
+            "name": "@_CC_BP_DLR_Avg",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_Unit_Price",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            dms_life_cycle_kpi_resource_v[dealer_id] <> \"TOTAL\")",
+              "",
+              "// 딜러 전체",
+              "VAR BPUS_RESULT = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_BP_ARPPU_RS_02\", [kpi_code_amt_mtd], 0)) ",
+              "VAR BPS_RESULT = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_BP_ARPPU_RS_01\", ROUND([kpi_code_amt_mtd] / 1000000, 0), 0)) +",
+              "                    SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_BP_ARPPU_RS_03\", ROUND([kpi_code_amt_mtd] / 1000, 0), 0))",
+              "",
+              "RETURN IF(BPUS_RESULT <> 0, BPS_RESULT / BPUS_RESULT, 0)"
+            ],
+            "lineageTag": "0984b042-da3e-4bc2-9242-54cedbd46b1e"
+          },
+          {
+            "name": "@_CC_BP_Unit_Price",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_Unit_Price",
+            "expression": [
+              "",
+              "",
+              "VAR BPUS_RESULT = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_BP_ARPPU_RS_02\", [kpi_code_amt_mtd], 0)) ",
+              "VAR BPS_RESULT = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_BP_ARPPU_RS_01\", ROUND([kpi_code_amt_mtd] / 1000000, 0), 0)) + ",
+              "                    SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_BP_ARPPU_RS_03\", ROUND([kpi_code_amt_mtd] / 1000, 0), 0))",
+              "",
+              "RETURN IF(BPUS_RESULT <> 0, BPS_RESULT/BPUS_RESULT, 0)"
+            ],
+            "lineageTag": "e260ca91-3b6e-4df3-82a7-0b2b6e39b3af"
+          },
+          {
+            "name": "@_CC_BP_Unit_Price_VSLY",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_Unit_Price",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 당 년",
+              "VAR YYYY_LY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]) - 1, STRING)   // 전 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "VAR SELECTED_DEALER = SELECTEDVALUE(dms_life_cycle_kpi_resource_v[dealer_id], \"TOTAL\") // 선택된 딜러",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            IF(SELECTED_DEALER <> \"TOTAL\", dms_life_cycle_kpi_resource_v[dealer_id] = SELECTEDVALUE(v_cc_dim_dealer[dealer_id]), ",
+              "                                                                            dms_life_cycle_kpi_resource_v[dealer_id] <> \"TOTAL\"))",
+              "",
+              "// 전 년 수치",
+              "VAR BPUS_RESULT_LY = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY_LY), IF([kpi_code] = \"BI_BP_ARPPU_RS_02\", [kpi_code_amt_mtd], 0)) // BPUS  값",
+              "VAR BPS_RESULT_LY = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY_LY), IF([kpi_code] = \"BI_BP_ARPPU_RS_01\", ROUND([kpi_code_amt_mtd] / 1000000, 0), 0)) + ",
+              "                    SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY_LY), IF([kpi_code] = \"BI_BP_ARPPU_RS_03\", ROUND([kpi_code_amt_mtd] / 1000, 0), 0)) // BPS  값",
+              "// 당 년 수치",
+              "VAR BPUS_RESULT = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY), IF([kpi_code] = \"BI_BP_ARPPU_RS_02\", [kpi_code_amt_mtd], 0)) // BPUS  값",
+              "VAR BPS_RESULT = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY), IF([kpi_code] = \"BI_BP_ARPPU_RS_01\", ROUND([kpi_code_amt_mtd] / 1000000, 0), 0)) + ",
+              "                    SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY), IF([kpi_code] = \"BI_BP_ARPPU_RS_03\", ROUND([kpi_code_amt_mtd] / 1000, 0), 0)) // BPS  값",
+              "// Unit Price 계산",
+              "VAR UNIT_PRICE_LY = IF(BPUS_RESULT_LY <> 0, BPS_RESULT_LY/BPUS_RESULT_LY, 0)",
+              "VAR UNIT_PRICE = IF(BPUS_RESULT <> 0, BPS_RESULT/BPUS_RESULT, 0)",
+              "",
+              "RETURN IF(UNIT_PRICE_LY <> 0, UNIT_PRICE/UNIT_PRICE_LY*100, 0)"
+            ],
+            "lineageTag": "87d3c40d-4284-4266-8ff2-8e53e1aa4879"
+          },
+          {
+            "name": "@_CC_CP_DLR_Avg",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_Unit_Price",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY && RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            dms_life_cycle_kpi_resource_v[dealer_id] <> \"TOTAL\")",
+              "",
+              "// 딜러 전체",
+              "VAR CPUS_RESULT = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_CP_ARPPU_RS_02\", [kpi_code_amt_mtd], 0)) ",
+              "VAR CPS_RESULT = SUMX(KPI_RESOURCE_TABLE, IF([kpi_code] = \"BI_CP_ARPPU_RS_01\", ROUND([kpi_code_amt_mtd] / 1000000, 0), 0)) ",
+              "",
+              "RETURN IF(CPUS_RESULT <> 0, CPS_RESULT / CPUS_RESULT, 0)"
+            ],
+            "lineageTag": "7ebee695-d246-4a68-a838-8a28dd964106"
+          },
+          {
+            "name": "@_CC_CP_Unit_Price",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_Unit_Price",
+            "expression": [
+              "",
+              "",
+              "VAR CPUS_RESULT = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_CP_ARPPU_RS_02\", [kpi_code_amt_mtd], 0)) ",
+              "VAR CPS_RESULT = SUMX(dms_life_cycle_kpi_resource_v, IF([kpi_code] = \"BI_CP_ARPPU_RS_01\", ROUND([kpi_code_amt_mtd] / 1000000, 0), 0))",
+              "",
+              "RETURN IF(CPUS_RESULT <> 0, CPS_RESULT/CPUS_RESULT, 0)"
+            ],
+            "lineageTag": "970c007c-f957-4eb1-a25d-523072e07f15"
+          },
+          {
+            "name": "@_CC_CP_Unit_Price_VSLY",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "displayFolder": "@_CC_Unit_Price",
+            "expression": [
+              "",
+              "",
+              "VAR YYYY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]), STRING)   // 당 년",
+              "VAR YYYY_LY = CONVERT(SELECTEDVALUE(dms_co_calendar_month_v[year]) - 1, STRING)   // 전 년",
+              "VAR MM = FORMAT(SELECTEDVALUE(dms_co_calendar_month_v[month]), \"00\")   // 월",
+              "VAR SELECTED_DEALER = SELECTEDVALUE(v_cc_dim_dealer[dealer_id], \"TOTAL\") // 선택된 딜러",
+              "",
+              "VAR KPI_RESOURCE_TABLE = FILTER(ALL('dms_life_cycle_kpi_resource_v'), RIGHT(dms_life_cycle_kpi_resource_v[yyyymm], 2) = MM && ",
+              "                                            dms_life_cycle_kpi_resource_v[dms_brand_cd] = SELECTEDVALUE(dms_co_brand[dms_brand_cd]) &&",
+              "                                            IF(SELECTED_DEALER <> \"TOTAL\", dms_life_cycle_kpi_resource_v[dealer_id] = SELECTEDVALUE(v_dim_dealer[dealer_id]), ",
+              "                                                                            dms_life_cycle_kpi_resource_v[dealer_id] <> \"TOTAL\"))",
+              "",
+              "// 전 년 수치",
+              "VAR CPUS_RESULT_LY = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY_LY), IF([kpi_code] = \"BI_CP_ARPPU_RS_02\", [kpi_code_amt_mtd], 0)) // CPUS  값",
+              "VAR CPS_RESULT_LY = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY_LY), IF([kpi_code] = \"BI_CP_ARPPU_RS_01\", ROUND([kpi_code_amt_mtd] / 1000000, 0), 0)) // CPS  값",
+              "",
+              "// 당 년 수치",
+              "VAR CPUS_RESULT = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY), IF([kpi_code] = \"BI_CP_ARPPU_RS_02\", [kpi_code_amt_mtd], 0)) // CPUS  값",
+              "VAR CPS_RESULT = SUMX(FILTER(KPI_RESOURCE_TABLE, LEFT(dms_life_cycle_kpi_resource_v[yyyymm], 4) = YYYY), IF([kpi_code] = \"BI_CP_ARPPU_RS_01\", ROUND([kpi_code_amt_mtd] / 1000000, 0), 0)) // CPS  값",
+              "",
+              "// Unit Price 계산",
+              "VAR UNIT_PRICE_LY = IF(CPUS_RESULT_LY <> 0, CPS_RESULT_LY/CPUS_RESULT_LY, 0)",
+              "VAR UNIT_PRICE = IF(CPUS_RESULT <> 0, CPS_RESULT/CPUS_RESULT, 0)",
+              "",
+              "RETURN IF(UNIT_PRICE_LY <> 0, UNIT_PRICE/UNIT_PRICE_LY*100, 0)"
+            ],
+            "lineageTag": "18080299-8072-4eaa-9dfe-9af1c1b993a9"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "dms_life_cycle_kpi_resource_v",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    원본 = Odbc.DataSource(\"dsn=TOYOTA1\", [HierarchicalNavigation=true]),",
+                "    d_twice_Database = 원본{[Name=\"d_twice\",Kind=\"Database\"]}[Data],",
+                "    dev_twice_Schema = d_twice_Database{[Name=\"dev_twice\",Kind=\"Schema\"]}[Data],",
+                "    dms_life_cycle_kpi_resource_v_View = dev_twice_Schema{[Name=\"dms_life_cycle_kpi_resource_v\",Kind=\"View\"]}[Data],",
+                "    #\"정렬된 행 수\" = Table.Sort(dms_life_cycle_kpi_resource_v_View,{{\"dms_brand_cd\", Order.Ascending}})",
+                "in",
+                "    #\"정렬된 행 수\""
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "dms_co_calendar_month_v",
+        "columns": [
+          {
+            "name": "year",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "IsHidden"
+              },
+              {
+                "property": "DataType"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "d39d4716-c255-4863-94f2-55963cb997bd",
+            "sourceColumn": "year",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "month",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "DataType"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "368994ee-6acb-4fe2-ad0a-52ec5fe0be74",
+            "sourceColumn": "month",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "quarter",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "5c600de0-afba-4f9d-833e-2e664e720e45",
+            "sourceColumn": "quarter",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "month_eng",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "71d773ab-6f4f-4ed0-855c-cc0882d3573b",
+            "sourceColumn": "month_eng",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "yyyy_mm",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "4048c546-3122-4ded-afea-f3f9510c2e0f",
+            "sourceColumn": "yyyy_mm",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "yyyymm",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "expression": "REPLACE(dms_co_calendar_month_v[yyyy_mm], 5, 1, \"\")",
+            "isDataTypeInferred": true,
+            "lineageTag": "f22ad331-d03b-4440-a024-1bef829a21da",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "IS_PAST",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "expression": [
+              "",
+              "            IF(DATE(LEFT(dms_co_calendar_month_v[yyyymm], 4), 1, 1) <= TODAY() && LEFT(dms_co_calendar_month_v[yyyymm], 4) >= \"2020\",",
+              "                \"Y\", \"N\")"
+            ],
+            "isDataTypeInferred": true,
+            "lineageTag": "8ef29352-10f6-4d1e-acc4-64841ac3b26e",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "lineageTag": "90fb6ed2-8492-45b3-a77d-ba3f29c674fe",
+        "partitions": [
+          {
+            "name": "dms_co_calendar_month_v",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    원본 = Odbc.DataSource(\"dsn=TOYOTA1\", [HierarchicalNavigation=true]),",
+                "    d_twice_Database = 원본{[Name=\"d_twice\",Kind=\"Database\"]}[Data],",
+                "    dev_twice_Schema = d_twice_Database{[Name=\"dev_twice\",Kind=\"Schema\"]}[Data],",
+                "    dms_co_calendar_month_v_View = dev_twice_Schema{[Name=\"dms_co_calendar_month_v\",Kind=\"View\"]}[Data]",
+                "in",
+                "    dms_co_calendar_month_v_View"
+              ],
+              "type": "m"
+            }
+          }
+        ]
+      },
+      {
+        "name": "v_cc_dim_dealer",
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "탐색"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "dms_brand_cd",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "ef689c20-177c-453e-97e8-3db643090670",
+            "sourceColumn": "dms_brand_cd",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "dealer_id",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "044b42c0-dc78-4fea-b9a1-96a283f31f1b",
+            "sourceColumn": "dealer_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "dealer_name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "1ab1265b-3c28-4276-9d03-1c6c45ccec5e",
+            "sourceColumn": "dealer_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "use_yn",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "566326f0-7e96-41ad-bece-3aea7959bcc6",
+            "sourceColumn": "use_yn",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "dspy_rank",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "dataType": "double",
+            "lineageTag": "ce41b0e3-3272-433d-8efe-7d51151abc7d",
+            "sourceColumn": "dspy_rank",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "eng_name",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "87556758-e93a-4499-96d4-114f9b392204",
+            "sourceColumn": "eng_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "eng_name_l",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SortByColumn"
+              }
+            ],
+            "dataType": "string",
+            "expression": "IF(v_cc_dim_dealer[dms_brand_cd] = \"T\", CONCATENATE(v_cc_dim_dealer[eng_name], \".\"), v_cc_dim_dealer[eng_name])",
+            "isDataTypeInferred": true,
+            "lineageTag": "1b5a3ee1-2314-4e79-a605-18ebc51e5fd5",
+            "sortByColumn": "dspy_rank",
+            "summarizeBy": "none",
+            "type": "calculated"
+          },
+          {
+            "name": "eng_name_t",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SortByColumn"
+              }
+            ],
+            "dataType": "string",
+            "expression": "IF(v_cc_dim_dealer[dms_brand_cd] = \"L\", CONCATENATE(v_cc_dim_dealer[eng_name], \".\"), v_cc_dim_dealer[eng_name])",
+            "isDataTypeInferred": true,
+            "lineageTag": "d6831496-6a98-464b-baba-fd6f06eed018",
+            "sortByColumn": "dspy_rank",
+            "summarizeBy": "none",
+            "type": "calculated"
+          }
+        ],
+        "lineageTag": "26837fcc-5e0f-4d2c-8ead-4c119902b620",
+        "partitions": [
+          {
+            "name": "v_cc_dim_dealer",
+            "mode": "import",
+            "source": {
+              "expression": [
+                "let",
+                "    원본 = Odbc.DataSource(\"dsn=TOYOTA1\", [HierarchicalNavigation=true]),",
+                "    d_twice_Database = 원본{[Name=\"d_twice\",Kind=\"Database\"]}[Data],",
+                "    dev_twice_Schema = d_twice_Database{[Name=\"dev_twice\",Kind=\"Schema\"]}[Data],",
+                "    v_dim_dealer_View = dev_twice_Schema{[Name=\"v_dim_dealer\",Kind=\"View\"]}[Data]",
+                "in",
+                "    v_dim_dealer_View"
+              ],
+              "type": "m"
+            }
+          }
+        ]
       }
     ]
   }
